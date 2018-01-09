@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Bismillah Zakat MVVM</string>
+    <string name="materi">Materi Zakat</string>
+    <string name="latihan">Soal Latihan</string>
+    <string name="kalkulator">Kalkulator Zakat</string>
+    <string name="tentang">Tentang Aplikasi</string>
+    <string name="fitrah">Zakat Fitrah</string>
+    <string name="zakatemas">Zakat Emas</string>
+    <string name="zakatperak">Zakat Perak</string>
+    <string name="zakatperniagaan">Zakat Perniagaan</string>
+    <string name="zakatpertanian">Zakat Pertanian</string>
+    <string name="zakattemuan">Zakat Barang Temuan</string>
+    <string name="zakatberhargalain">Zakat Barang Berharga Lain</string>
+    <string name="zakatprofesi">Zakat Profesi</string>
+    <string name="zakattambang">Zakat Barang Tambang</string>
+    <string name="hitung">Hitung</string>
+    <string name="ulang">Ulang</string>
+    <string name="zakatdagang">Zakat Perdagangan</string>
+</resources>

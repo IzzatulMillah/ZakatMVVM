@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatEmasActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/zakatemas"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp" />
+
+    <!--COMPLETED buat edit text, sesuaikan dengan field yang ada pada jurnal TA.
+    TODO pastikan pada expert -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lama Kepemilikan (tahun)"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/etLamaKepemilikan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="2"
+                    android:hint="Lama Kepemilikan (tahun)"
+                    android:inputType="number"
+                    android:textColorLink="@color/colorAccent"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/btnResetLamaKepemilikan"
+                    android:layout_width="42dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="0dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/btn_dialog" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Emas yang dimiliki (gram)"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/etTotalEmas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="2"
+                    android:hint="Total emas (gram)"
+                    android:inputType="number"
+                    android:textColorLink="@color/colorAccent"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/btnResetTotalEmas"
+                    android:layout_width="42dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="0dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/btn_dialog" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Emas yang dipakai (gram)"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/etTotalDipakai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="2"
+                    android:hint="Total yang dipakai (gram)"
+                    android:inputType="number"
+                    android:textColorLink="@color/colorAccent"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/btnResetTotalDipakai"
+                    android:layout_width="42dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="0dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/btn_dialog" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Harga Emas (per gram)"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:id="@+id/etHargaEmas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="2"
+                    android:hint="Harga Emas (per gram)"
+                    android:inputType="number"
+                    android:textColorLink="@color/colorAccent"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/btnHargaEmas"
+                    android:layout_width="42dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="0dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/btn_dialog" />
+            </LinearLayout>
+
+            <!-- Hasil perhitungan -->
+            <TextView
+                android:id="@+id/tvHasil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:hint="Hasil perhitungan"
+                android:paddingBottom="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <!-- Button perhitungan dan reset all -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/btnHitung"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/hitung"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnUlangi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/background_light"
+                    android:gravity="center"
+                    android:text="@string/ulang"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
