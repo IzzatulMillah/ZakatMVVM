@@ -21,7 +21,7 @@ public class KategoriCardActivity extends Activity {
         namaZakat = findViewById(R.id.nama_zakat);
         detailZakat = findViewById(R.id.detail);
 
-        namaZakat.setText("Zakat Fitrah");
+        namaZakat.setText("Materi Fitrah");
         detailZakat.setText("read more..");
     }
 }

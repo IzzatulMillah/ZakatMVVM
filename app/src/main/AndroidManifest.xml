@@ -12,24 +12,20 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".materi.KategoriActivity">
-
-        </activity>
+        <activity android:name=".materi.KategoriActivity"></activity>
         <activity android:name=".latihan.DetailLatihanActivity" />
         <activity android:name=".kalkulator.HitungZakatFitrahActivity" />
         <activity android:name=".kalkulator.HitungZakatEmasActivity" />
-        <activity android:name=".kalkulator.HitungZakatPerakActivity"></activity>
+        <activity android:name=".kalkulator.HitungZakatPerakActivity" />
         <activity android:name=".kalkulator.HitungZakatPerdaganganActivity" />
         <activity android:name=".kalkulator.HitungZakatPertanianActivity" />
-        <activity android:name=".contohRecyclerCardView.TesCardView">
-
-        </activity>
-        <activity android:name=".materi.KategoriCardActivity">
-
-        </activity>
+        <activity android:name=".contohRecyclerCardView.TesCardView"></activity>
+        <activity android:name=".materi.KategoriCardActivity"></activity>
+        <activity android:name=".materi.DeskripsiMateriActivity"></activity>
     </application>
 
 </manifest>
