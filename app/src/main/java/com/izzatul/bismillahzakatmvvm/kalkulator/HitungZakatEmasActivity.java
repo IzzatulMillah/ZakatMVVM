@@ -2,6 +2,7 @@ package com.izzatul.bismillahzakatmvvm.kalkulator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -22,6 +23,11 @@ public class HitungZakatEmasActivity extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitung_zakat_emas);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
 
         editLamaKepemilikan = findViewById(R.id.etLamaKepemilikan);
         editJumlahTotal = findViewById(R.id.etTotalEmas);

@@ -6,10 +6,8 @@ package com.izzatul.bismillahzakatmvvm;
 
 class Zakat {
     String nama;
-    String detail;
 
-    Zakat(String nama, String detail) {
+    Zakat(String nama) {
         this.nama = nama;
-        this.detail = detail;
     }
 }

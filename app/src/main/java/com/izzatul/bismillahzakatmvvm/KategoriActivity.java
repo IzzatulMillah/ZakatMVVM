@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatEmasActivity;
@@ -13,6 +14,7 @@ import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatFitrahActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPerakActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPerdaganganActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPertanianActivity;
+import com.izzatul.bismillahzakatmvvm.materi.view.DeskripsiMateriActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
 
     private RecyclerView rv;
     private List<Zakat> zakatList;
+    private int bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,14 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+        bundle = getIntent().getExtras().getInt("menu");
+        if (bundle == 1) {
+            getSupportActionBar().setTitle(R.string.materi);
+        } else {
+            getSupportActionBar().setTitle(R.string.kalkulator);
+        }
 
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
 
         rv = findViewById(R.id.rv);
 
@@ -41,18 +50,16 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
 
         inisialisasi();
         inisialisasiAdapter();
-
-        // TODO lanjutkan lihat di github tutplus
     }
 
     private void inisialisasi(){
         zakatList = new ArrayList<>();
-        zakatList.add(new Zakat("Zakat Fitrah", "see"));
-        zakatList.add(new Zakat("Zakat Emas", "see"));
-        zakatList.add(new Zakat("Zakat Perak", "see"));
-        zakatList.add(new Zakat("Zakat Perdagangan", "see"));
-        zakatList.add(new Zakat("Zakat Pertanian", "see"));
-        zakatList.add(new Zakat("Zakat ...", "see"));
+        zakatList.add(new Zakat("Zakat Fitrah"));
+        zakatList.add(new Zakat("Zakat Emas"));
+        zakatList.add(new Zakat("Zakat Perak"));
+        zakatList.add(new Zakat("Zakat Perdagangan"));
+        zakatList.add(new Zakat("Zakat Pertanian"));
+        zakatList.add(new Zakat("Zakat Hewan Ternak"));
     }
 
     private void inisialisasiAdapter(){
@@ -63,30 +70,75 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
     @Override
     public void onClickCardView(int position) {
         Intent intent;
-        switch (position) {
-            case 0 :
-                intent = new Intent(this, HitungZakatFitrahActivity.class);
-                startActivity(intent);
-                break;
-            case 1 :
-                intent = new Intent(this, HitungZakatEmasActivity.class);
-                startActivity(intent);
-                break;
-            case 2 :
-                intent = new Intent(this, HitungZakatPerakActivity.class);
-                startActivity(intent);
-                break;
-            case 3 :
-                intent = new Intent(this, HitungZakatPerdaganganActivity.class);
-                startActivity(intent);
-                break;
-            case 4 :
-                intent = new Intent(this, HitungZakatPertanianActivity.class);
-                startActivity(intent);
-                break;
-            case 5 :
-                Toast.makeText(this, "Masih On Going", Toast.LENGTH_SHORT).show();
-                break;
+        /* Jika value yang dipassing adalah 3, maka akan menuju ke activity kalkulator */
+        if (bundle == 3){
+            switch (position) {
+                case 0 :
+                    intent = new Intent(this, HitungZakatFitrahActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1 :
+                    intent = new Intent(this, HitungZakatEmasActivity.class);
+                    startActivity(intent);
+                    break;
+                case 2 :
+                    intent = new Intent(this, HitungZakatPerakActivity.class);
+                    startActivity(intent);
+                    break;
+                case 3 :
+                    intent = new Intent(this, HitungZakatPerdaganganActivity.class);
+                    startActivity(intent);
+                    break;
+                case 4 :
+                    intent = new Intent(this, HitungZakatPertanianActivity.class);
+                    startActivity(intent);
+                    break;
+                case 5 :
+                    Toast.makeText(this, "Masih On Going", Toast.LENGTH_SHORT).show();
+                    break;
+            }
         }
+        /* Jika value yang dipassing adalah 1, maka akan menuju ke activity materi */
+        else {
+            switch (position) {
+                case 0 :
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1 :
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    startActivity(intent);
+                    break;
+                case 2 :
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    startActivity(intent);
+                    break;
+                case 3 :
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    startActivity(intent);
+                    break;
+                case 4 :
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    startActivity(intent);
+                    break;
+                case 5 :
+                    Toast.makeText(this, "Masih On Going", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    }
+
+    // tombol click back ke home atau activity sebelumnya
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int idItem = item.getItemId();
+        switch (idItem) {
+            case android.R.id.home :
+                finish();
+                break;
+            default:
+                Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }

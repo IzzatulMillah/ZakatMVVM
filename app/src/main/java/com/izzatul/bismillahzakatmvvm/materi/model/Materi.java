@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.materi;
+package com.izzatul.bismillahzakatmvvm.materi.model;
 
 /**
  * Created by Izzatul on 12/19/2017.

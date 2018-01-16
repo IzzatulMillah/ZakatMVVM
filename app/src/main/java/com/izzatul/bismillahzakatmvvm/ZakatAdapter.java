@@ -21,19 +21,20 @@ public class ZakatAdapter extends RecyclerView.Adapter<ZakatAdapter.ZakatViewHol
     public class ZakatViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         CardView cv;
         TextView nama_zakat;
-        TextView detail;
 
         ZakatViewHolder(View itemView) {
             super(itemView);
             cv = itemView.findViewById(R.id.cv);
             nama_zakat = itemView.findViewById(R.id.nama_zakat);
-            detail = itemView.findViewById(R.id.detail);
+
+            cv.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             listener.onClickCardView(getAdapterPosition());
         }
+
     }
 
     public ZakatAdapter(OnRecyclerViewListener listener, List<Zakat> zakats){
@@ -53,12 +54,11 @@ public class ZakatAdapter extends RecyclerView.Adapter<ZakatAdapter.ZakatViewHol
         return zvh;
     }
 
-    // TODO tambahkan nama zakat sesuai recyclerview, contohnya ada di RVAdapter
+    // COMPLETED tambahkan nama zakat sesuai recyclerview, contohnya ada di RVAdapter
     @Override
     public void onBindViewHolder(ZakatViewHolder holder, int position) {
         holder.nama_zakat.setText(zakatList.get(position).nama);
-        holder.detail.setText(zakatList.get(position).detail);
-
+//        holder.detail.setText(zakatList.get(position).detail);
     }
 
     @Override

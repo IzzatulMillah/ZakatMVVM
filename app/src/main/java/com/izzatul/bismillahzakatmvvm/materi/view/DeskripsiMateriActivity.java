@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.materi;
+package com.izzatul.bismillahzakatmvvm.materi.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
