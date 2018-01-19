@@ -30,8 +30,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="20sp" />
 
-        <!--COMPLETED buat edit text, sesuaikan dengan field yang ada pada jurnal TA.
-        TODO pastikan pada expert -->
+        <!-- COMPLETED buat edit text, sesuaikan dengan field yang ada pada jurnal TA.
+        COMPLETED pastikan pada expert -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,7 +109,8 @@
             android:layout_marginTop="5dp"
             android:hint="Hasil perhitungan"
             android:paddingBottom="20dp"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp" />
 
         <!-- Button perhitungan dan reset all -->
         <LinearLayout
@@ -147,7 +148,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 </LinearLayout>
