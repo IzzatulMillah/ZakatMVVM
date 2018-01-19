@@ -27,37 +27,46 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/fitrah"
+            android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="20sp" />
 
         <!-- COMPLETED buat edit text, sesuaikan dengan field yang ada pada jurnal TA.
         COMPLETED pastikan pada expert -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Harga Beras (kg)"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="10">
 
-            <EditText
-                android:id="@+id/etHargaBeras"
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_weight="2"
-                android:hint="Harga Beras per Liter (Rp)"
-                android:inputType="number"
-                android:textColorLink="@color/colorAccent"
-                android:textSize="18sp" />
+                android:layout_weight="9">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etHargaBeras"
+                    android:hint="Harga Beras per Liter (Rp)"
+                    android:inputType="number"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!--<EditText-->
+                <!--android:id="@+id/etHargaBeras"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="0dp"-->
+                <!--android:layout_weight="2"-->
+                <!--android:hint="Harga Beras per Liter (Rp)"-->
+                <!--android:inputType="number"-->
+                <!--android:textColorLink="@color/colorAccent"-->
+                <!--android:textSize="18sp" />-->
 
             <ImageButton
                 android:id="@+id/btnResetBeras"
-                android:layout_width="42dp"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="0dp"
@@ -66,32 +75,40 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jumlah Orang"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="10">
 
-            <EditText
-                android:id="@+id/etJumlahOrang"
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_weight="2"
-                android:hint="Jumlah Orang"
-                android:inputType="number"
-                android:textColorLink="@color/colorAccent"
-                android:textSize="18sp" />
+                android:layout_weight="9">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/etJumlahOrang"
+                    android:hint="Jumlah Anggota Keluarga"
+                    android:inputType="number"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!--<EditText-->
+                <!--android:id="@+id/etJumlahOrang"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="0dp"-->
+                <!--android:layout_weight="2"-->
+                <!--android:hint="Jumlah Orang"-->
+                <!--android:inputType="number"-->
+                <!--android:textColorLink="@color/colorAccent"-->
+                <!--android:textSize="18sp" />-->
 
             <ImageButton
                 android:id="@+id/btnResetJumlahOrang"
-                android:layout_width="42dp"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="0dp"

@@ -3,6 +3,7 @@ package com.izzatul.bismillahzakatmvvm.kalkulator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -70,5 +71,19 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
                 textHasil.setText("");
                 break;
         }
+    }
+
+    // tombol click back ke home atau activity sebelumnya
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int idItem = item.getItemId();
+        switch (idItem) {
+            case android.R.id.home :
+                finish();
+                break;
+            default:
+                Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
 }

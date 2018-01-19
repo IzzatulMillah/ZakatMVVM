@@ -34,6 +34,12 @@ public class DeskripsiMateriActivity extends AppCompatActivity {
             Toast.makeText(this, "Zakat Emas", Toast.LENGTH_SHORT).show();
         } else if (bundleMateri == 3){
             Toast.makeText(this, "Zakat Perak", Toast.LENGTH_SHORT).show();
+        } else if (bundleMateri == 5){
+            Toast.makeText(this, "Zakat Perdagangan", Toast.LENGTH_SHORT).show();
+        } else if (bundleMateri == 5){
+            Toast.makeText(this, "Zakat Pertanian", Toast.LENGTH_SHORT).show();
+        } else if (bundleMateri == 6){
+            Toast.makeText(this, "Zakat Hewan Ternak", Toast.LENGTH_SHORT).show();
         }
     }
 

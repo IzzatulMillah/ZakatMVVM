@@ -94,31 +94,48 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     startActivity(intent);
                     break;
                 case 5 :
-                    Toast.makeText(this, "Masih On Going", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(this, HitungZakatPertanianActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
         /* Jika value yang dipassing adalah 1, maka akan menuju ke activity materi */
         else {
+            Bundle fitrah, emas, perak, dagang, tani;
             switch (position) {
                 case 0 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
+                    fitrah = new Bundle();
+                    fitrah.putInt("kategori", 1);
+                    intent.putExtras(fitrah);
                     startActivity(intent);
                     break;
                 case 1 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
+                    emas = new Bundle();
+                    emas.putInt("kategori", 2);
+                    intent.putExtras(emas);
                     startActivity(intent);
                     break;
                 case 2 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
+                    perak = new Bundle();
+                    perak.putInt("kategori", 3);
+                    intent.putExtras(perak);
                     startActivity(intent);
                     break;
                 case 3 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
+                    dagang = new Bundle();
+                    dagang.putInt("kategori", 4);
+                    intent.putExtras(dagang);
                     startActivity(intent);
                     break;
                 case 4 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
+                    tani = new Bundle();
+                    tani.putInt("kategori", 5);
+                    intent.putExtras(tani);
                     startActivity(intent);
                     break;
                 case 5 :

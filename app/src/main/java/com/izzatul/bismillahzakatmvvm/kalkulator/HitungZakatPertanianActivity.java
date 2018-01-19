@@ -13,13 +13,17 @@ import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.R;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class HitungZakatPertanianActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText editJenis, editBerat;
-    private TextView textHasil;
+    private TextView textHasil, btHitung, btUlang;
     private ImageButton resetJenis, resetBerat;
     private RadioButton rbManual, rbHujan;
     String selectedMethod;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +40,10 @@ public class HitungZakatPertanianActivity extends AppCompatActivity implements V
         resetBerat = findViewById(R.id.btnResetBerat);
         rbManual = findViewById(R.id.rbManual);
         rbHujan = findViewById(R.id.rbHujan);
+        btHitung = findViewById(R.id.btnHitung);
+        btUlang = findViewById(R.id.btnUlangi);
 
+        btHitung.setOnClickListener(this);
     }
 
     // tombol click back ke home atau activity sebelumnya
@@ -56,11 +63,29 @@ public class HitungZakatPertanianActivity extends AppCompatActivity implements V
     @Override
     public void onClick(View view) {
         // manual, zakatnya 5% ; hujan, zakatnya 10%
-        if (rbManual.isChecked()){
-            selectedMethod = rbManual.getText().toString();
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
+        float NISAB_TANAMAN = 520; // nisab perdagangan adalah 520 kg, jika kurang dari itu, tidak perlu dizakatkan
+        double PERSEN_ZAKAT_MANUAL = 0.05;
+        double PERSEN_ZAKAT_HUJAN = 0.1;
+
+        double zakat = 0.0;
+
+        int beratTanaman = Integer.parseInt(editBerat.getText().toString());
+        String jenisTanaman = editJenis.getText().toString();
+
+        if (beratTanaman >= 520) {
+            if (rbManual.isChecked()){
+//                selectedMethod = rbManual.getText().toString();
+                zakat = beratTanaman * PERSEN_ZAKAT_MANUAL;
+            } else {
+                selectedMethod = rbHujan.getText().toString();
+                zakat = beratTanaman * PERSEN_ZAKAT_HUJAN;
+            }
+            textHasil.setText("Zakat yang wajib dikeluarkan adalah " + zakat + " kg " + jenisTanaman);
         } else {
-            selectedMethod = rbHujan.getText().toString();
+            textHasil.setText("Anda tidak wajib zakat.");
         }
-        Toast.makeText(this, selectedMethod, Toast.LENGTH_SHORT).show();
     }
 }

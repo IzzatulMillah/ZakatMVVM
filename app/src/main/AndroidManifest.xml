@@ -10,20 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".KategoriActivity"/>
         <activity android:name=".latihan.DetailLatihanActivity" />
-        <activity android:name=".kalkulator.HitungZakatFitrahActivity" />
-        <activity android:name=".kalkulator.HitungZakatEmasActivity" />
+        <activity android:name=".kalkulator.HitungZakatFitrahActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".kalkulator.HitungZakatEmasActivity">
+
+        </activity>
         <activity android:name=".kalkulator.HitungZakatPerakActivity" />
         <activity android:name=".kalkulator.HitungZakatPerdaganganActivity" />
         <activity android:name=".kalkulator.HitungZakatPertanianActivity">
-
         </activity>
         <activity android:name=".materi.view.DeskripsiMateriActivity"></activity>
     </application>
