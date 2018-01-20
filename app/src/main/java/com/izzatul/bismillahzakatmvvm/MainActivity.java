@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.izzatul.bismillahzakatmvvm.latihan.DetailLatihanActivity;
+import com.izzatul.bismillahzakatmvvm.latihan.view.DetailLatihanActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

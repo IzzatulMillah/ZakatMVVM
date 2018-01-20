@@ -13,7 +13,12 @@
     <string name="zakatberhargalain">Zakat Barang Berharga Lain</string>
     <string name="zakatprofesi">Zakat Profesi</string>
     <string name="zakattambang">Zakat Barang Tambang</string>
-    <string name="hitung">Hitung</string>
-    <string name="ulang">Ulang</string>
+    <string name="hitung">HITUNG</string>
+    <string name="ulang">ULANG</string>
     <string name="zakatdagang">Zakat Perdagangan</string>
+    <string name="zakat_hewan_ternak">Zakat Hewan Ternak</string>
+    <string name="jenis_hewan">Jenis Hewan</string>
+    <string name="sapi_kerbau">Sapi/Kerbau</string>
+    <string name="kambing">Kambing</string>
+    <string name="unta">Unta</string>
 </resources>

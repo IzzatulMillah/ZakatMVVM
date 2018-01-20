@@ -54,12 +54,12 @@
                         android:layout_weight="9">
 
                         <android.support.design.widget.TextInputEditText
+                            android:id="@+id/etJenis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/etJenis"
                             android:hint="Jenis Tanaman"
-                            android:inputType="number"/>
+                            android:inputType="text" />
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageButton

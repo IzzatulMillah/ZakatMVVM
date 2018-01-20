@@ -93,7 +93,7 @@ public class HitungZakatPerdaganganActivity extends AppCompatActivity implements
                 // COMPLETE beri kondisi haul dan nisab
                 double total = (float) ((modal + keuntungan + piutang) - (hutang - kerugian));
                 double nisab = total / hargaEmas;
-                if (kepemilikan >= HAUL_PERAK || nisab >= NISAB_DAGANG) {
+                if (kepemilikan >= HAUL_PERAK & nisab >= NISAB_DAGANG) {
                     double zakat = total * PERSEN_ZAKAT;
                     textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(zakat));
                 }

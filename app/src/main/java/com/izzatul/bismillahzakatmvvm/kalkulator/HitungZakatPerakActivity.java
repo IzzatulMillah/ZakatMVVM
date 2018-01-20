@@ -82,7 +82,7 @@ public class HitungZakatPerakActivity extends AppCompatActivity implements View.
                 editHargaPerak.setText("");
                 break;
             case R.id.btnHitung :
-                if (jumlahPerak >= NISAB_Perak || lama >= HAUL_Perak){
+                if (jumlahPerak >= NISAB_Perak && lama >= HAUL_Perak){
                     double hitung = PERSEN_ZAKAT * (jumlahPerak - jumlahDipakai);
                     double rupiah = hitung * hargaPerak;
                     textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(rupiah));

@@ -5,4 +5,11 @@ package com.izzatul.bismillahzakatmvvm.latihan.model;
  */
 
 public class Pertanyaan {
+    private int id;
+    private String pertanyaan;
+
+    public Pertanyaan(int id, String pertanyaan) {
+        this.id = id;
+        this.pertanyaan = pertanyaan;
+    }
 }

@@ -52,7 +52,7 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
                 editJumlahOrang.setText("");
                 break;
             case R.id.btnHitung :
-                // TODO cari tahu format titik untuk inputan edittext
+                // TODO cari tahu format titik untuk inputan edittext. cek textwatcher. but yet still confusing
                 if (editHargaBeras.getText().toString().equals("") || editJumlahOrang.getText().toString().equals("")){
                     Toast.makeText(this, "Isi kolom terlebih dahulu", Toast.LENGTH_SHORT).show();
                 }

@@ -5,4 +5,13 @@ package com.izzatul.bismillahzakatmvvm.latihan.model;
  */
 
 public class JawabanBenar {
+    private int id;
+    private int idPertanyaan;
+    private int idJawaban;
+
+    public JawabanBenar(int id, int idPertanyaan, int idJawaban) {
+        this.id = id;
+        this.idPertanyaan = idPertanyaan;
+        this.idJawaban = idJawaban;
+    }
 }

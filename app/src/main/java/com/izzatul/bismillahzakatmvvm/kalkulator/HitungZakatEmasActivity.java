@@ -82,7 +82,7 @@ public class HitungZakatEmasActivity extends AppCompatActivity implements View.O
                 editHargaEmas.setText("");
                 break;
             case R.id.btnHitung :
-                if (jumlahEmas >= NISAB_EMAS || lama >= HAUL_EMAS){
+                if (jumlahEmas >= NISAB_EMAS && lama >= HAUL_EMAS){
                     double hitung = PERSEN_ZAKAT * (jumlahEmas - jumlahDipakai);
                     double rupiah = hitung * hargaEmas;
                     textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(rupiah));
