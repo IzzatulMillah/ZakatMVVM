@@ -44,15 +44,77 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <!-- Deskripsi Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
                 <TextView
                     android:id="@+id/tv_deskripsi_materi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:text="Zakat Fitrah ialah zakat diri yang diwajibkan atas diri setiap individu lelaki dan perempuan muslim yang berkemampuan dengan syarat-syarat yang ditetapkan. Kata Fitrah yang ada merujuk pada keadaan manusia saat baru diciptakan sehingga dengan mengeluarkan zakat ini manusia dengan izin Allah akan kembali fitrah."
                     android:textAlignment="viewStart"
                     android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!-- Penjelasan Nishab Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_nishab_zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat Fitrah adalah ..."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!-- Waktu Pelaksanaa Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_waktu_zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat Fitrah adalah ..."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!-- Besar Zakat -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_besar_zakat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nishab Zakat Fitrah adalah ..."
+                    android:textAlignment="viewStart"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"/>
 
             </LinearLayout>
 
