@@ -12,6 +12,9 @@ public class Materi {
     String haul;
     String zakat;
 
+    public Materi() {
+    }
+
     public Materi(int id, String judul_materi, String deskripsi_materi, String nishab, String haul, String zakat) {
         this.id = id;
         this.judul_materi = judul_materi;

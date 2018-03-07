@@ -4,10 +4,14 @@ package com.izzatul.bismillahzakatmvvm;
  * Created by Izzatul on 12/19/2017.
  */
 
-class Zakat {
-    String nama;
+public class Zakat {
+    public String nama;
 
-    Zakat(String nama) {
+    public Zakat(String nama) {
         this.nama = nama;
+    }
+
+    public String getNama() {
+        return this.nama;
     }
 }

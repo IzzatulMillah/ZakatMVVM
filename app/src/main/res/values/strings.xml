@@ -21,4 +21,9 @@
     <string name="sapi_kerbau">Sapi/Kerbau</string>
     <string name="kambing">Kambing</string>
     <string name="unta">Unta</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="nishab_zakat">Nishab Zakat</string>
+    <string name="waktu_pelaksanaan_zakat">Waktu Pelaksanaan Zakat</string>
+    <string name="besar_zakat">Besar Zakat</string>
+    <string name="contoh_perhitungan_zakat">Contoh Perhitungan Zakat</string>
 </resources>

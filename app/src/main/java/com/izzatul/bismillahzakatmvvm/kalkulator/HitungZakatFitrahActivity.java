@@ -62,7 +62,7 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
                     int jumlahOrang = Integer.parseInt(editJumlahOrang.getText().toString());
                     float hasilLiter = KADAR_ZAKAT_FITRAH * jumlahOrang;
                     float hasilRupiah = hasilLiter * hargaBeras;
-                    textHasil.setText("Zakat yang dibayarkan dapat berupa " + hasilLiter + " liter makanan pokok, atau dapat berupa uang sejumlah Rp. " + hasilRupiah);
+                    textHasil.setText("Zakat yang dibayarkan dapat berupa " + hasilLiter + " liter makanan pokok setempat, atau dapat berupa uang sejumlah Rp. " + hasilRupiah);
                 }
                 break;
             case R.id.btnUlangi :

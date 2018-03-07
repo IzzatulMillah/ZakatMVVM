@@ -12,7 +12,6 @@ import com.izzatul.bismillahzakatmvvm.materi.model.Materi;
  */
 
 public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.MateriViewHolder>{
-    private List<Materi> materi;
 
     public class MateriViewHolder extends RecyclerView.ViewHolder{
         public MateriViewHolder(View itemView) {
@@ -32,7 +31,7 @@ public class MateriAdapter extends RecyclerView.Adapter<MateriAdapter.MateriView
 
     @Override
     public int getItemCount() {
-        return materi.size();
+        return 0;
     }
 
 }

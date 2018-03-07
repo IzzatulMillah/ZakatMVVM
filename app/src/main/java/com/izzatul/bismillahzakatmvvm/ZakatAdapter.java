@@ -34,7 +34,6 @@ public class ZakatAdapter extends RecyclerView.Adapter<ZakatAdapter.ZakatViewHol
         public void onClick(View view) {
             listener.onClickCardView(getAdapterPosition());
         }
-
     }
 
     public ZakatAdapter(OnRecyclerViewListener listener, List<Zakat> zakats){
