@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatEmasActivity">
+    tools:context="com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatEmasActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"

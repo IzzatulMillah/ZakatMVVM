@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.kalkulator;
+package com.izzatul.bismillahzakatmvvm.kalkulator.view;
 
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;

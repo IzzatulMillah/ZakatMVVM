@@ -1,147 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.izzatul.bismillahzakatmvvm.materi.view.DeskripsiMateriActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
-    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/activity_vertical_margin"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.izzatul.bismillahzakatmvvm.materi.view.DeskripsiMateriActivity">
 
-        <TextView
-            android:id="@+id/tv_judul_materi"
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="5dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:hint="Zakat Fitrah"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+        </android.support.v7.widget.Toolbar>
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="fill_horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_judul_materi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:hint="Zakat Fitrah"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginBottom="10dp">
 
-                <!-- Deskripsi Zakat -->
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/deskripsi"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="@color/colorPrimary"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_deskripsi_materi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Zakat Fitrah ialah zakat diri yang diwajibkan atas diri setiap individu lelaki dan perempuan muslim yang berkemampuan dengan syarat-syarat yang ditetapkan. Kata Fitrah yang ada merujuk pada keadaan manusia saat baru diciptakan sehingga dengan mengeluarkan zakat ini manusia dengan izin Allah akan kembali fitrah."
-                    android:textAlignment="viewStart"
-                    android:textColor="#000"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="5dp"/>
+                    <!-- Deskripsi Zakat -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/deskripsi"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"/>
 
-                <!-- Penjelasan Nishab Zakat -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nishab_zakat"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/tv_deskripsi_materi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Zakat Fitrah ialah zakat diri yang diwajibkan atas diri setiap individu lelaki dan perempuan muslim yang berkemampuan dengan syarat-syarat yang ditetapkan. Kata Fitrah yang ada merujuk pada keadaan manusia saat baru diciptakan sehingga dengan mengeluarkan zakat ini manusia dengan izin Allah akan kembali fitrah."
+                        android:textAlignment="viewStart"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="5dp"/>
 
-                <TextView
-                    android:id="@+id/tv_nishab_zakat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nishab Zakat Fitrah adalah 3,5 kg bahan makanan pokok daerah setempat"
-                    android:textAlignment="viewStart"
-                    android:textColor="#000"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="5dp"/>
+                    <!-- Penjelasan Nishab Zakat -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nishab_zakat"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"/>
 
-                <!-- Waktu Pelaksanaa Zakat -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/waktu_pelaksanaan_zakat"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/tv_nishab_zakat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nishab Zakat Fitrah adalah 3,5 kg bahan makanan pokok daerah setempat"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="5dp"/>
 
-                <TextView
-                    android:id="@+id/tv_waktu_zakat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Waktu pelaksanaan zakat fitrah adalah saat bulan Ramadhan"
-                    android:textAlignment="viewStart"
-                    android:textColor="#000"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="5dp"/>
+                    <!-- Waktu Pelaksanaa Zakat -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/waktu_pelaksanaan_zakat"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"/>
 
-                <!-- Besar Zakat -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/besar_zakat"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/tv_waktu_zakat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Waktu pelaksanaan zakat fitrah adalah saat bulan Ramadhan"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="5dp"/>
 
-                <TextView
-                    android:id="@+id/tv_besar_zakat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Besar zakat yang dibayarkan adalah harga makanan pokok dikalikan dengan jumlah orang"
-                    android:textAlignment="viewStart"
-                    android:textColor="#000"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="5dp"/>
+                    <!-- Besar Zakat -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/besar_zakat"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"/>
 
-                <!-- Besar Zakat -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contoh_perhitungan_zakat"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="5dp"
-                    android:textColor="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/tv_besar_zakat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Besar zakat yang dibayarkan adalah harga makanan pokok dikalikan dengan jumlah orang"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="5dp"/>
 
-                <TextView
-                    android:id="@+id/tv_contoh_zakat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Harga beras saat ini adalah Rp. 12.0000 dengan jumlah anggota keluarga 4 orang. Maka zakat yang dibayarkan adalah 14 kg beras atau uang sejumlah Rp. 48.000"
-                    android:textAlignment="viewStart"
-                    android:textColor="#000"
-                    android:textSize="15sp"
-                    android:layout_marginBottom="5dp"/>
+                    <!-- Besar Zakat -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contoh_perhitungan_zakat"
+                        android:textSize="18sp"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@color/colorPrimary"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_contoh_zakat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Harga beras saat ini adalah Rp. 12.0000 dengan jumlah anggota keluarga 4 orang. Maka zakat yang dibayarkan adalah 14 kg beras atau uang sejumlah Rp. 48.000"
+                        android:textAlignment="viewStart"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="5dp"/>
 
-        </ScrollView>
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</layout>
+

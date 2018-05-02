@@ -9,11 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatEmasActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatFitrahActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPerakActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPerdaganganActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPertanianActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatEmasActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatFitrahActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerakActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerdaganganActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPertanianActivity;
 import com.izzatul.bismillahzakatmvvm.materi.view.DeskripsiMateriActivity;
 
 import java.util.ArrayList;
