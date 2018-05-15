@@ -1,7 +1,6 @@
 package com.izzatul.bismillahzakatmvvm.latihan.viewmodel;
 
-import com.izzatul.bismillahzakatmvvm.latihan.model.Pertanyaan;
-import com.izzatul.bismillahzakatmvvm.source.ViewModel;
+import com.izzatul.bismillahzakatmvvm.model.Pertanyaan;
 
 /**
  * Created by Izzatul on 3/20/2018.

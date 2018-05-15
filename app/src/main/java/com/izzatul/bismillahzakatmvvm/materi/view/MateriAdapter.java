@@ -4,9 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-import com.izzatul.bismillahzakatmvvm.materi.model.Materi;
-
 /**
  * Created by Izzatul on 1/16/2018.
  */

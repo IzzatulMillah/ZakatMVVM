@@ -1,10 +1,10 @@
-package com.izzatul.bismillahzakatmvvm.kalkulator.model;
+package com.izzatul.bismillahzakatmvvm.model;
 
 /**
  * Created by Izzatul on 4/4/2018.
  */
 
-public class HasilModel {
+public class HasilHitung {
     private double hasilZakatFitrah;
     private double hasilZakatEmas;
     private double hasilZakatPerak;
@@ -12,7 +12,7 @@ public class HasilModel {
     private double hasilZakatPertanian;
     private double hasilZakatTernak;
 
-    public HasilModel() {
+    public HasilHitung() {
     }
 
     public double getHasilZakatFitrah() {

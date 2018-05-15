@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="materi"
+            type="com.izzatul.bismillahzakatmvvm.model.Materi"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +37,7 @@
                 android:padding="5dp"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
-                android:hint="Zakat Fitrah"
+                android:text="@{materi.judulMateri}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
             <ScrollView
@@ -59,7 +64,7 @@
                         android:id="@+id/tv_deskripsi_materi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Zakat Fitrah ialah zakat diri yang diwajibkan atas diri setiap individu lelaki dan perempuan muslim yang berkemampuan dengan syarat-syarat yang ditetapkan. Kata Fitrah yang ada merujuk pada keadaan manusia saat baru diciptakan sehingga dengan mengeluarkan zakat ini manusia dengan izin Allah akan kembali fitrah."
+                        android:text="@{materi.deskripsiMateri}"
                         android:textAlignment="viewStart"
                         android:textColor="#000"
                         android:textSize="15sp"
@@ -78,7 +83,7 @@
                         android:id="@+id/tv_nishab_zakat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nishab Zakat Fitrah adalah 3,5 kg bahan makanan pokok daerah setempat"
+                        android:text="@{materi.nishab}"
                         android:textAlignment="viewStart"
                         android:textColor="#000"
                         android:textSize="15sp"
@@ -97,7 +102,7 @@
                         android:id="@+id/tv_waktu_zakat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Waktu pelaksanaan zakat fitrah adalah saat bulan Ramadhan"
+                        android:text="@{materi.haul}"
                         android:textAlignment="viewStart"
                         android:textColor="#000"
                         android:textSize="15sp"
@@ -116,7 +121,7 @@
                         android:id="@+id/tv_besar_zakat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Besar zakat yang dibayarkan adalah harga makanan pokok dikalikan dengan jumlah orang"
+                        android:text="@{}"
                         android:textAlignment="viewStart"
                         android:textColor="#000"
                         android:textSize="15sp"

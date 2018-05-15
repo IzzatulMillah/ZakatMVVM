@@ -12,4 +12,5 @@ public class DeskripsiMateriViewModel extends ViewModel{
     public DeskripsiMateriViewModel(BindingView bindingView) {
         super(bindingView);
     }
+
 }
