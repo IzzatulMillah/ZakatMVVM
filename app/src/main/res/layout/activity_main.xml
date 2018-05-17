@@ -2,7 +2,9 @@
 <layout>
 
     <data>
-
+        <variable
+            name="dataActivity"
+            type="com.izzatul.bismillahzakatmvvm.MainActivity"/>
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -49,7 +51,8 @@
                 android:text="@string/latihan"
                 android:textSize="18sp"
                 android:background="@color/colorPrimary"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF"
+                android:onClick="@{}"/>
 
             <Button
                 android:id="@+id/btnKalkulator"
