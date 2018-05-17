@@ -16,13 +16,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".KategoriActivity" />
-        <activity android:name=".latihan.view.DetailLatihanActivity" />
+        <activity android:name=".latihan.DetailLatihanActivity" />
         <activity android:name=".kalkulator.view.HitungZakatFitrahActivity"></activity>
         <activity android:name=".kalkulator.view.HitungZakatEmasActivity"></activity>
         <activity android:name=".kalkulator.view.HitungZakatPerakActivity" />
         <activity android:name=".kalkulator.view.HitungZakatPerdaganganActivity" />
         <activity android:name=".kalkulator.view.HitungZakatPertanianActivity"></activity>
-        <activity android:name=".materi.view.DeskripsiMateriActivity" />
+        <activity android:name=".materi.DeskripsiMateriActivity" />
         <activity android:name=".kalkulator.view.HitungZakatHewanTernakActivity"></activity>
     </application>
 

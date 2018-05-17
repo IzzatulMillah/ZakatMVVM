@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.latihan.view;
+package com.izzatul.bismillahzakatmvvm.latihan;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

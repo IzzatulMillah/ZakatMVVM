@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.materi.view;
+package com.izzatul.bismillahzakatmvvm.materi;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,17 +17,27 @@ public class DeskripsiMateriActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.deskripsi_materi_activity);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.materi);
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+        setupToolbar();
 
         tvJudulMateri = findViewById(R.id.tv_judul_materi);
         tvDeskripsi = findViewById(R.id.tv_deskripsi_materi);
 
+        getIdMateri();
+    }
+
+    private void setupToolbar(){
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.materi);
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+    }
+
+    private void getIdMateri(){
         bundleMateri = getIntent().getExtras().getInt("kategori");
+
         if (bundleMateri == 1){
             Toast.makeText(this, "Zakat Fitrah", Toast.LENGTH_SHORT).show();
         } else if (bundleMateri == 2){
@@ -43,7 +53,6 @@ public class DeskripsiMateriActivity extends AppCompatActivity {
         }
     }
 
-    // tombol click back ke home atau activity sebelumnya
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int idItem = item.getItemId();

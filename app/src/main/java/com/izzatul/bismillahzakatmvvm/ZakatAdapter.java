@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.izzatul.bismillahzakatmvvm.model.Zakat;
+
 import java.util.List;
 
 /**

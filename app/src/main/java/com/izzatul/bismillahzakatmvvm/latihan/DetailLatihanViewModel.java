@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.latihan.viewmodel;
+package com.izzatul.bismillahzakatmvvm.latihan;
 
 import com.izzatul.bismillahzakatmvvm.model.Pertanyaan;
 

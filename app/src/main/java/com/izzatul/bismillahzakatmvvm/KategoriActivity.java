@@ -14,7 +14,8 @@ import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatFitrahActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerakActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerdaganganActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPertanianActivity;
-import com.izzatul.bismillahzakatmvvm.materi.view.DeskripsiMateriActivity;
+import com.izzatul.bismillahzakatmvvm.materi.DeskripsiMateriActivity;
+import com.izzatul.bismillahzakatmvvm.model.Zakat;
 
 import java.util.ArrayList;
 import java.util.List;

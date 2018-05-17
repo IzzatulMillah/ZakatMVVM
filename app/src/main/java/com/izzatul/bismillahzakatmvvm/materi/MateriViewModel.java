@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.materi.viewmodel;
+package com.izzatul.bismillahzakatmvvm.materi;
 
 import android.databinding.ObservableField;
 

@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.materi.view;
+package com.izzatul.bismillahzakatmvvm.materi;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
