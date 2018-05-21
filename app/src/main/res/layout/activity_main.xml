@@ -1,84 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context="com.izzatul.bismillahzakatmvvm.MainActivity">
 
-    <data>
-        <variable
-            name="dataActivity"
-            type="com.izzatul.bismillahzakatmvvm.MainActivity"/>
-    </data>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center"
         android:orientation="vertical"
-        android:background="#FFFFFF"
-        tools:context="com.izzatul.bismillahzakatmvvm.MainActivity">
+        android:layout_marginTop="60dp">
 
-        <LinearLayout
-            android:layout_width="250dp"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/logo" />
+
+        <Button
+            android:id="@+id/btnMateri"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center"
-            android:orientation="vertical"
-            android:layout_marginTop="60dp">
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/materi"
+            android:textSize="18sp"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"/>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/logo" />
+        <Button
+            android:id="@+id/btnSoalLatihan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/latihan"
+            android:textSize="18sp"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"/>
 
-            <Button
-                android:id="@+id/btnMateri"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/materi"
-                android:textSize="18sp"
-                android:background="@color/colorPrimary"
-                android:textColor="#FFFFFF"/>
+        <Button
+            android:id="@+id/btnKalkulator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/kalkulator"
+            android:textSize="18sp"
+            tools:layout_width="wrap_content"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"/>
 
-            <Button
-                android:id="@+id/btnSoalLatihan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/latihan"
-                android:textSize="18sp"
-                android:background="@color/colorPrimary"
-                android:textColor="#FFFFFF"
-                android:onClick="@{}"/>
-
-            <Button
-                android:id="@+id/btnKalkulator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/kalkulator"
-                android:textSize="18sp"
-                tools:layout_width="wrap_content"
-                android:background="@color/colorPrimary"
-                android:textColor="#FFFFFF"/>
-
-            <Button
-                android:id="@+id/btnTentangAplikasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/tentang"
-                android:textSize="18sp"
-                android:background="@color/colorPrimary"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/btnTentangAplikasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="@string/tentang"
+            android:textSize="18sp"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
-</layout>
-
+</LinearLayout>
