@@ -26,7 +26,7 @@ import org.json.JSONObject;
 
 public class DeskripsiMateriActivity extends AppCompatActivity {
 
-    private TextView tvJudulMateri, tvDeskripsi;
+    private TextView tvJudulMateri, tvDeskripsi, tvNishab, tvWaktu, tvBesar, tvContoh;
     private int bundleMateri;
 
     private static final String TAG = DeskripsiMateriActivity.class.getName();
@@ -44,13 +44,17 @@ public class DeskripsiMateriActivity extends AppCompatActivity {
 
         tvJudulMateri = findViewById(R.id.tv_judul_materi);
         tvDeskripsi = findViewById(R.id.tv_deskripsi_materi);
+        tvNishab = findViewById(R.id.tv_nishab_zakat);
+        tvWaktu = findViewById(R.id.tv_waktu_zakat);
+        tvBesar = findViewById(R.id.tv_besar_zakat);
+        tvContoh = findViewById(R.id.tv_contoh_zakat);
 
-        DeskripsiMateriActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.deskripsi_materi_activity);
+//        DeskripsiMateriActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.deskripsi_materi_activity);
 
         bundleMateri = getIdMateri();
         getData(bundleMateri);
 
-        binding.setMateri(materi);
+//        binding.setMateri(materi);
     }
 
     private void setupToolbar(){
@@ -118,10 +122,10 @@ public class DeskripsiMateriActivity extends AppCompatActivity {
 
                     tvJudulMateri.setText(judul);
                     tvDeskripsi.setText(definisi);
-//                    nishabZakat.setText(nishab);
-//                    waktuZakat.setText(waktu);
-//                    besarZakat.setText(besar);
-//                    contohZakat.setText(contoh);
+                    tvNishab.setText(nishab);
+                    tvWaktu.setText(waktu);
+                    tvBesar.setText(besar);
+                    tvContoh .setText(contoh);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
