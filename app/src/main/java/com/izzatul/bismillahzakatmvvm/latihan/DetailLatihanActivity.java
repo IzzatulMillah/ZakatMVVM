@@ -46,11 +46,20 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
 
         getElements();
 
+        ambilData();
+    }
+
+    void ambilData(){
+        idLatihan = getRandomNumber();
+        urutanSoal = idLatihan;
+        getSoal(idLatihan);
+//        getJawaban(idLatihan);
+
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
     }
 
-    public void setUpToolbar(){
+    void setUpToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.latihan);

@@ -26,15 +26,9 @@ import static android.content.ContentValues.TAG;
 
 public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
     private DeskripsiMateriView mView;
-
     public Materi materi;
-
     private int bundleMateri;
-
     private String url = "http://192.168.43.20/basic/web/services/get-data/";
-
-//    KategoriActivity kategoriActivity;
-
     Context mContext;
 
     public DeskripsiMateriViewModel(int extraBundle, Context context) {
@@ -79,6 +73,7 @@ public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
                     String waktu = data.getString("waktu_pelaksanaan");
                     String besar = data.getString("besar_zakat");
                     String contoh = data.getString("contoh_perhitungan");
+
                     materi.setJenisZakat(judul);
                     materi.setDeskripsiZakat(definisi);
                     materi.setNishabZakat(nishab);

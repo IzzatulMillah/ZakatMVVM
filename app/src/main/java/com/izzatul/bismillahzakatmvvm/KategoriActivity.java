@@ -102,7 +102,7 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         }
         /* Jika value yang dipassing adalah 1, maka akan menuju ke activity materi */
         else {
-            Bundle fitrah, emas, perak, dagang, tani;
+            Bundle fitrah, emas, perak, dagang, tani, ternak;
             switch (position) {
                 case 0 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
@@ -140,7 +140,11 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     startActivity(intent);
                     break;
                 case 5 :
-                    Toast.makeText(this, "Masih On Going", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    ternak = new Bundle();
+                    ternak.putInt("kategori", 6);
+                    intent.putExtras(ternak);
+                    startActivity(intent);
                     break;
             }
         }
