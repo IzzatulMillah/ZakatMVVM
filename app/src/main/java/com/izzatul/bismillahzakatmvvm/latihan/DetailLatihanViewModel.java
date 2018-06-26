@@ -18,6 +18,8 @@ import com.izzatul.bismillahzakatmvvm.source.ViewModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Random;
+
 import static android.content.ContentValues.TAG;
 
 /**
@@ -27,14 +29,14 @@ import static android.content.ContentValues.TAG;
 public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     private DetailLatihanView detailLatihanView;
     public Pertanyaan pertanyaan;
-    private int bundleMateri;
+    private int IdSoal;
     private String url = "http://192.168.43.20/basic/web/services/get-data/";
     Context mContext;
     private String jawabanBenar;
 
-    public DetailLatihanViewModel(int extraBundle, Context mContext) {
+    public DetailLatihanViewModel(Context mContext) {
         this.mContext = mContext;
-        this.bundleMateri = extraBundle;
+        this.IdSoal = getRandomNumber();
         pertanyaan = new Pertanyaan();
         getData();
         Log.d("Pengambilan Data Soal", pertanyaan.toString());
@@ -50,11 +52,20 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
         detailLatihanView = null;
     }
 
+    private int getRandomNumber(){
+        int num;
+        int min = 1;
+        int max = 10;
+
+        num = new Random().nextInt((max - min) + 1) + min;
+        return num;
+    }
+
     private void getData(){
         detailLatihanView.showProgressDialog();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url + this.bundleMateri, null, new Response.Listener<JSONObject>() {
+                url + this.IdSoal, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -76,9 +87,9 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
                     pertanyaan.setJawaban2(jawab2);
                     pertanyaan.setJawaban3(jawab3);
                     pertanyaan.setJawaban4(jawab4);
+                    detailLatihanView.showLatihan(pertanyaan);
 
                     jawabanBenar = jawaban_benar;
-
 //                    Toast.makeText(LatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -99,6 +110,5 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
         RequestQueue requestQueue = Volley.newRequestQueue(mContext);
         requestQueue.add(jsonObjReq);
     }
-
 
 }

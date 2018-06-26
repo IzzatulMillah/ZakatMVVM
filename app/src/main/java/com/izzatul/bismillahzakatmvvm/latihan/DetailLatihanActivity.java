@@ -19,23 +19,26 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.izzatul.bismillahzakatmvvm.R;
+import com.izzatul.bismillahzakatmvvm.model.Pertanyaan;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Random;
 
-public class DetailLatihanActivity extends AppCompatActivity implements View.OnClickListener{
+public class DetailLatihanActivity extends AppCompatActivity implements View.OnClickListener, DetailLatihanView{
     private int idLatihan;
     private int urutanSoal = 0;
     private int i = 1;
 
+    DetailLatihanViewModel viewModel;
+
     private static final String TAG = DetailLatihanActivity.class.getName();
-    private String url = "http://192.168.43.20/basic/web/services/get-latihan/";
-//    192.168.43.20
 
     private TextView noUrutSoal, jumlahSoal, textSoal, btnNext, btnPrev;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
+
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,17 +49,16 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
 
         getElements();
 
-        ambilData();
-    }
+        initViewModel();
 
-    void ambilData(){
-        idLatihan = getRandomNumber();
-        urutanSoal = idLatihan;
-        getSoal(idLatihan);
-//        getJawaban(idLatihan);
+        onAttachView();
 
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
+    }
+
+    private void initViewModel(){
+        viewModel = new DetailLatihanViewModel(this.getApplicationContext());
     }
 
     void setUpToolbar(){
@@ -91,69 +93,6 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
         return true;
     }
 
-    private int getRandomNumber(){
-        int num;
-        int min = 1;
-        int max = 10;
-
-        num = new Random().nextInt((max - min) + 1) + min;
-        return num;
-    }
-
-    private void getSoal(int idSoal){
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url + idSoal, null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    // Parsing json object response
-                    // response will be a json object
-                    JSONObject data = response.getJSONObject("data");
-                    String soal = data.getString("soal");
-                    String jawab1 = data.getString("jawaban_1");
-                    String jawab2 = data.getString("jawaban_2");
-                    String jawab3 = data.getString("jawaban_3");
-                    String jawab4 = data.getString("jawaban_4");
-                    String jawaban_benar = data.getString("jawaban_benar");
-
-                    textSoal.setText(soal);
-                    jawaban1.setText(jawab1);
-                    jawaban2.setText(jawab2);
-                    jawaban3.setText(jawab3);
-                    jawaban4.setText(jawab4);
-
-                    Toast.makeText(DetailLatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(),
-                            "Error: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();
-                }
-                progressDialog.dismiss();
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-                // hide the progress dialog
-                progressDialog.dismiss();
-            }
-        });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjReq);
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -162,14 +101,48 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.btn_next :
                 while(i >= 10){
-                    idLatihan = getRandomNumber();
                     urutanSoal = idLatihan;
-                    getSoal(idLatihan);
+//                  getSoal(idLatihan);
 
                     i++;
                 }
                 Toast.makeText(this, "TOMBOL NEXT CLICKED", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    public void onAttachView() {
+        progressDialog = new ProgressDialog(this);
+        viewModel.onAttach(this);
+    }
+
+    @Override
+    public void onDetachView() {
+    viewModel.onDetach();
+    }
+
+    @Override
+    public void showProgressDialog() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        progressDialog.hide();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showLatihan(Pertanyaan pertanyaan) {
+        textSoal.setText(viewModel.pertanyaan.getSoal());
+        jawaban1.setText(viewModel.pertanyaan.getJawaban1());
+        jawaban2.setText(viewModel.pertanyaan.getJawaban2());
+        jawaban3.setText(viewModel.pertanyaan.getJawaban3());
+        jawaban4.setText(viewModel.pertanyaan.getJawaban4());
     }
 }

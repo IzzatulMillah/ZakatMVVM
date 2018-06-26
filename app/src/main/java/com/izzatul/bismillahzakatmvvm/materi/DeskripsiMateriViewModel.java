@@ -28,7 +28,8 @@ public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
     private DeskripsiMateriView mView;
     public Materi materi;
     private int bundleMateri;
-    private String url = "http://192.168.43.20/basic/web/services/get-data/";
+//    private String url = "http://192.168.43.20/basic/web/services/get-data/";
+    private String url = "http://millah@cyber1011.com/basic/web/services/get-data/";
     Context mContext;
 
     public DeskripsiMateriViewModel(int extraBundle, Context context) {

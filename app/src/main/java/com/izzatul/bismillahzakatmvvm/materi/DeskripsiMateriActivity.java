@@ -33,6 +33,7 @@ public class DeskripsiMateriActivity extends AppCompatActivity implements Deskri
         setContentView(R.layout.deskripsi_materi_activity);
 
         setupToolbar();
+
         getElement();
         bundleMateri = getIntent().getExtras().getInt("kategori");
 //        DeskripsiMateriActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.deskripsi_materi_activity);
