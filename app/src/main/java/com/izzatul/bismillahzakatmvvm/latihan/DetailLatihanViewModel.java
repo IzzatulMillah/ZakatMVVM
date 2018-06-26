@@ -30,7 +30,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     private DetailLatihanView detailLatihanView;
     public Pertanyaan pertanyaan;
     private int IdSoal;
-    private String url = "http://192.168.43.20/basic/web/services/get-data/";
+    private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
     Context mContext;
     private String jawabanBenar;
 
@@ -62,7 +62,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     }
 
     private void getData(){
-        detailLatihanView.showProgressDialog();
+//        detailLatihanView.showProgressDialog();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 url + this.IdSoal, null, new Response.Listener<JSONObject>() {

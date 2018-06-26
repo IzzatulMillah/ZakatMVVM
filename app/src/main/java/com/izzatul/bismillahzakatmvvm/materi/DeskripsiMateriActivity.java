@@ -104,7 +104,7 @@ public class DeskripsiMateriActivity extends AppCompatActivity implements Deskri
 
     @Override
     public void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show();
     }
 
     @Override

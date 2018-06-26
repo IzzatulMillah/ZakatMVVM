@@ -29,7 +29,7 @@ public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
     public Materi materi;
     private int bundleMateri;
 //    private String url = "http://192.168.43.20/basic/web/services/get-data/";
-    private String url = "http://millah@cyber1011.com/basic/web/services/get-data/";
+    private String url = "http://millah.cyber1011.com/web/services/get-data/";
     Context mContext;
 
     public DeskripsiMateriViewModel(int extraBundle, Context context) {
@@ -37,6 +37,7 @@ public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
         this.bundleMateri = extraBundle;
         materi = new Materi();
         getData();
+//        Log.d("ID MATERI : ", String.valueOf(this.bundleMateri));
         Log.d("MATERI ViewModel Cons",materi.toString());
     }
 
