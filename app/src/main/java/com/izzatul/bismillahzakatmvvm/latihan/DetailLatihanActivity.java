@@ -30,6 +30,7 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
     private int idLatihan;
     private int urutanSoal = 0;
     private int i = 1;
+    private int skor;
 
     DetailLatihanViewModel viewModel;
 
@@ -97,16 +98,15 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_prev :
-                Toast.makeText(this, "TOMBOL PREV CLICKED", Toast.LENGTH_SHORT).show();
+                showToast("TOMBOL PREVIOUS");
                 break;
             case R.id.btn_next :
-                while(i >= 10){
-                    urutanSoal = idLatihan;
-//                  getSoal(idLatihan);
-
+                while(i <= 10){
+                    cekJawaban();
+//                    initViewModel();
                     i++;
                 }
-                Toast.makeText(this, "TOMBOL NEXT CLICKED", Toast.LENGTH_SHORT).show();
+                showToast("Tombol Next clicked");
                 break;
         }
     }
@@ -144,5 +144,54 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
         jawaban2.setText(viewModel.pertanyaan.getJawaban2());
         jawaban3.setText(viewModel.pertanyaan.getJawaban3());
         jawaban4.setText(viewModel.pertanyaan.getJawaban4());
+    }
+
+    public void cekJawaban(){
+        String jawabanBenar = viewModel.getJawabanBenar();
+        showToast(jawabanBenar);
+        if (jawaban1.isChecked()){
+            if (jawaban1.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Benar");
+            }
+            else {
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Salah");
+            }
+        }
+        else if (jawaban2.isChecked()){
+            if (jawaban2.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Benar");
+            }
+            else {
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Salah");
+            }
+        }
+        else if (jawaban3.isChecked()){
+            if (jawaban3.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Benar");
+            }
+            else {
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Salah");
+            }
+        }
+        else if (jawaban4.isChecked()){
+            if (jawaban4.getText().toString().equals(jawabanBenar)){
+                skor = skor + 10;
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Benar");
+            }
+            else {
+                noUrutSoal.setText(""+skor);
+                showToast("Jawaban Salah");
+            }
+        }
     }
 }

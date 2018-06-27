@@ -111,4 +111,12 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
         requestQueue.add(jsonObjReq);
     }
 
+    public String getJawabanBenar(){
+        String jwbnBenar;
+
+        jwbnBenar = jawabanBenar;
+
+        return jwbnBenar;
+    }
+
 }
