@@ -18,6 +18,7 @@ import com.izzatul.bismillahzakatmvvm.source.ViewModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static android.content.ContentValues.TAG;
@@ -30,6 +31,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     private DetailLatihanView detailLatihanView;
     public Pertanyaan pertanyaan;
     private int IdSoal;
+    private int idLatihan;
     private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
     Context mContext;
     private String jawabanBenar;
@@ -63,11 +65,11 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
         return num;
     }
 
-    public void getData(){
+    public void getData(int idSoal){
 //        detailLatihanView.showProgressDialog();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url + this.IdSoal, null, new Response.Listener<JSONObject>() {
+                url + idSoal, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -114,8 +116,17 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     }
 
     public void getKuis(){
-        IdSoal = getRandomNumber();
-        getData();
+//        IdSoal = getRandomNumber();
+//        getData();
+        ArrayList<Integer> idSoal = new ArrayList<>();
+        Log.d("ayam","jalan");
+        do{
+            idLatihan = getRandomNumber();
+            Log.d("ayam",String.valueOf(idLatihan));
+        } while (idSoal.contains(idLatihan));
+        idSoal.add(idLatihan);
+
+        getData(idLatihan);
     }
 
     public String getJawabanBenar(){
