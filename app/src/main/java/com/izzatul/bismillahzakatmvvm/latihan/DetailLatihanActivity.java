@@ -101,12 +101,9 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
                 showToast("TOMBOL PREVIOUS");
                 break;
             case R.id.btn_next :
-                while(i <= 10){
-                    cekJawaban();
-//                    initViewModel();
-                    i++;
-                }
-                showToast("Tombol Next clicked");
+                cekJawaban();
+                viewModel.getKuis();
+                i++;
                 break;
         }
     }
@@ -148,7 +145,7 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
 
     public void cekJawaban(){
         String jawabanBenar = viewModel.getJawabanBenar();
-        showToast(jawabanBenar);
+//        showToast(jawabanBenar);
         if (jawaban1.isChecked()){
             if (jawaban1.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;

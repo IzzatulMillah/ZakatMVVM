@@ -33,12 +33,14 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
     Context mContext;
     private String jawabanBenar;
+    private int[] idSoal;
 
     public DetailLatihanViewModel(Context mContext) {
         this.mContext = mContext;
         this.IdSoal = getRandomNumber();
         pertanyaan = new Pertanyaan();
-        getData();
+        getKuis();
+//        getData();
         Log.d("Pengambilan Data Soal", pertanyaan.toString());
     }
 
@@ -61,7 +63,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
         return num;
     }
 
-    private void getData(){
+    public void getData(){
 //        detailLatihanView.showProgressDialog();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -109,6 +111,11 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
 
         RequestQueue requestQueue = Volley.newRequestQueue(mContext);
         requestQueue.add(jsonObjReq);
+    }
+
+    public void getKuis(){
+        IdSoal = getRandomNumber();
+        getData();
     }
 
     public String getJawabanBenar(){
