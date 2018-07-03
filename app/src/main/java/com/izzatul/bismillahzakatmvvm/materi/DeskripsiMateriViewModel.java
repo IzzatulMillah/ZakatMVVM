@@ -28,7 +28,7 @@ public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
     private DeskripsiMateriView mView;
     public Materi materi;
     private int bundleMateri;
-//    private String url = "http://192.168.43.20/basic/web/services/get-data/";
+
     private String url = "http://millah.cyber1011.com/web/services/get-data/";
     Context mContext;
 
@@ -38,7 +38,7 @@ public class DeskripsiMateriViewModel implements ViewModel<DeskripsiMateriView>{
         materi = new Materi();
         getData();
 //        Log.d("ID MATERI : ", String.valueOf(this.bundleMateri));
-        Log.d("MATERI ViewModel Cons",materi.toString());
+        Log.d("MATERI ViewModel Cons", materi.toString());
     }
 
     @Override

@@ -15,4 +15,6 @@ public interface DetailLatihanView extends BaseView{
     void showToast(String message);
 
     void showLatihan(Pertanyaan pertanyaan);
+
+    void showLatihan();
 }

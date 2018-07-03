@@ -29,20 +29,20 @@ import static android.content.ContentValues.TAG;
 
 public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     private DetailLatihanView detailLatihanView;
+
     public Pertanyaan pertanyaan;
-    private int IdSoal;
+
     private int idLatihan;
-    private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
-    Context mContext;
+
     private String jawabanBenar;
-    private int[] idSoal;
+    private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
+
+    Context mContext;
 
     public DetailLatihanViewModel(Context mContext) {
         this.mContext = mContext;
-        this.IdSoal = getRandomNumber();
         pertanyaan = new Pertanyaan();
         getKuis();
-//        getData();
         Log.d("Pengambilan Data Soal", pertanyaan.toString());
     }
 
@@ -116,9 +116,8 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     }
 
     public void getKuis(){
-//        IdSoal = getRandomNumber();
-//        getData();
         ArrayList<Integer> idSoal = new ArrayList<>();
+//        detailLatihanView.showLatihan();
         Log.d("ayam","jalan");
         do{
             idLatihan = getRandomNumber();
@@ -133,7 +132,6 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
         String jwbnBenar;
 
         jwbnBenar = jawabanBenar;
-
         return jwbnBenar;
     }
 

@@ -3,6 +3,7 @@ package com.izzatul.bismillahzakatmvvm.kalkulator.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -11,9 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.R;
+import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorView;
+import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorViewModel;
+import com.izzatul.bismillahzakatmvvm.materi.DeskripsiMateriView;
+import com.izzatul.bismillahzakatmvvm.model.ZakatFitrah;
 
-public class HitungZakatFitrahActivity extends AppCompatActivity implements View.OnClickListener{
+public class HitungZakatFitrahActivity extends AppCompatActivity implements View.OnClickListener, KalkulatorView{
 
+    KalkulatorViewModel kalkulatorViewModel;
     EditText editHargaBeras, editJumlahOrang;
     ImageButton btResetHrgBeras, btResetJumlahOrang;
     TextView bHitung, bUlang, textHasil;
@@ -23,11 +29,18 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitung_zakat_fitrah);
 
+        setToolbar();
+        getView();
+    }
+
+    public void setToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+    }
 
+    public void getView(){
         editHargaBeras = findViewById(R.id.etHargaBeras);
         editJumlahOrang = findViewById(R.id.etJumlahOrang);
         btResetHrgBeras = findViewById(R.id.btnResetBeras);
@@ -42,6 +55,7 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
         bUlang.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -52,23 +66,10 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
                 editJumlahOrang.setText("");
                 break;
             case R.id.btnHitung :
-                // TODO cari tahu format titik untuk inputan edittext. cek textwatcher. but yet still confusing
-                if (editHargaBeras.getText().toString().equals("") || editJumlahOrang.getText().toString().equals("")){
-                    Toast.makeText(this, "Isi kolom terlebih dahulu", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    final float KADAR_ZAKAT_FITRAH = (float) 3.5;
-                    Float hargaBeras = Float.parseFloat(editHargaBeras.getText().toString());
-                    int jumlahOrang = Integer.parseInt(editJumlahOrang.getText().toString());
-                    float hasilLiter = KADAR_ZAKAT_FITRAH * jumlahOrang;
-                    float hasilRupiah = hasilLiter * hargaBeras;
-                    textHasil.setText("Zakat yang dibayarkan dapat berupa " + hasilLiter + " liter makanan pokok setempat, atau dapat berupa uang sejumlah Rp. " + hasilRupiah);
-                }
+                hitung();
                 break;
             case R.id.btnUlangi :
-                editHargaBeras.setText("");
-                editJumlahOrang.setText("");
-                textHasil.setText("");
+                setNull();
                 break;
         }
     }
@@ -85,5 +86,35 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
                 Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
         }
         return true;
+    }
+
+    public void setNull(){
+        editHargaBeras.setText("");
+        editJumlahOrang.setText("");
+        textHasil.setText("");
+    }
+    public void hitung(){
+        Log.d("Fungsi hitung ", "Activity");
+        kalkulatorViewModel = new KalkulatorViewModel();
+        kalkulatorViewModel.hitungZakatFitrah();
+    }
+    @Override
+    public void onAttachView() {
+
+    }
+
+    @Override
+    public void onDetachView() {
+
+    }
+
+    @Override
+    public void showToast(String message) {
+
+    }
+
+    @Override
+    public void showHasilFitrah(ZakatFitrah zakatFitrah) {
+        textHasil.setText(kalkulatorViewModel.getZakatFitrah().getHasilZakat());
     }
 }
