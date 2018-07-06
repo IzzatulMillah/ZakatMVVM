@@ -1,6 +1,5 @@
 package com.izzatul.bismillahzakatmvvm.kalkulator.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,10 +13,10 @@ import android.widget.Toast;
 import com.izzatul.bismillahzakatmvvm.R;
 import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorView;
 import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorViewModel;
-import com.izzatul.bismillahzakatmvvm.materi.DeskripsiMateriView;
 import com.izzatul.bismillahzakatmvvm.model.ZakatFitrah;
+import com.izzatul.bismillahzakatmvvm.source.AppActivity;
 
-public class HitungZakatFitrahActivity extends AppCompatActivity implements View.OnClickListener, KalkulatorView{
+public class HitungZakatFitrahActivity extends AppActivity implements KalkulatorView{
 
     KalkulatorViewModel kalkulatorViewModel;
     EditText editHargaBeras, editJumlahOrang;
@@ -55,22 +54,24 @@ public class HitungZakatFitrahActivity extends AppCompatActivity implements View
         bUlang.setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnResetBeras :
-                editHargaBeras.setText("");
-                break;
-            case R.id.btnResetJumlahOrang :
-                editJumlahOrang.setText("");
-                break;
-            case R.id.btnHitung :
-                hitung();
-                break;
-            case R.id.btnUlangi :
-                setNull();
-                break;
+        super.onClick(view);
+        if (validated) {
+            switch (view.getId()){
+                case R.id.btnResetBeras :
+                    editHargaBeras.setText("");
+                    break;
+                case R.id.btnResetJumlahOrang :
+                    editJumlahOrang.setText("");
+                    break;
+                case R.id.btnHitung :
+                    hitung();
+                    break;
+                case R.id.btnUlangi :
+                    setNull();
+                    break;
+            }
         }
     }
 

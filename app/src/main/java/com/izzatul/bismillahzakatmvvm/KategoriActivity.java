@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatEmasActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatFitrahActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatHewanTernakActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerakActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerdaganganActivity;
 import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPertanianActivity;
@@ -95,7 +96,7 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     startActivity(intent);
                     break;
                 case 5 :
-                    intent = new Intent(this, HitungZakatPertanianActivity.class);
+                    intent = new Intent(this, HitungZakatHewanTernakActivity.class);
                     startActivity(intent);
                     break;
             }

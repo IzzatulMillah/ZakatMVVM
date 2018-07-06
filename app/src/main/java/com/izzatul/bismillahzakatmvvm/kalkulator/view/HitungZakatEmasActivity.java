@@ -1,6 +1,5 @@
 package com.izzatul.bismillahzakatmvvm.kalkulator.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -11,12 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.R;
+import com.izzatul.bismillahzakatmvvm.source.AppActivity;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class HitungZakatEmasActivity extends AppCompatActivity implements View.OnClickListener{
+public class HitungZakatEmasActivity extends AppActivity{
 
+    @NotEmpty(message = "Mohon diisi dahulu")
     EditText editLamaKepemilikan, editJumlahTotal, editJumlahDipakai, editHargaEmas;
     ImageButton btResetKepemilikan, btResetJumlahTotal, btResetJumlahDipakai, btResetHarga;
     TextView bHitung, bUlang, textHasil;
@@ -26,11 +28,18 @@ public class HitungZakatEmasActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitung_zakat_emas);
 
+        setToolbar();
+        getView();
+    }
+
+    public void setToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+    }
 
+    public void getView() {
         editLamaKepemilikan = findViewById(R.id.etLamaKepemilikan);
         editJumlahTotal = findViewById(R.id.etTotalEmas);
         editJumlahDipakai = findViewById(R.id.etTotalDipakai);
@@ -56,6 +65,32 @@ public class HitungZakatEmasActivity extends AppCompatActivity implements View.O
     // Perhitungan Zakat emas https://www.rumahzakat.org/zakat/zakat-emas-dan-perak/ atau http://www.sami-an.com/islam-dan-dakwah/perhitungan-zakat-emas.html
     @Override
     public void onClick(View view) {
+        super.onClick(view);
+        if (validated) {
+            switch (view.getId()){
+                case R.id.btnResetLamaKepemilikan :
+                    editLamaKepemilikan.setText("");
+                    break;
+                case R.id.btnResetTotalEmas :
+                    editJumlahTotal.setText("");
+                    break;
+                case R.id.btnResetTotalDipakai :
+                    editJumlahDipakai.setText("");
+                    break;
+                case R.id.btnHargaEmas :
+                    editHargaEmas.setText("");
+                    break;
+                case R.id.btnHitung :
+                    hitungZakat();
+                    break;
+                case R.id.btnUlangi :
+                    setNull();
+                    break;
+            }
+        }
+    }
+
+    public void hitungZakat() {
         float NISAB_EMAS = 85; // nisab emas
         int HAUL_EMAS = 1; // haul emas
         double PERSEN_ZAKAT = 0.025;
@@ -68,35 +103,20 @@ public class HitungZakatEmasActivity extends AppCompatActivity implements View.O
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
-        switch (view.getId()){
-            case R.id.btnResetLamaKepemilikan :
-                editLamaKepemilikan.setText("");
-                break;
-            case R.id.btnResetTotalEmas :
-                editJumlahTotal.setText("");
-                break;
-            case R.id.btnResetTotalDipakai :
-                editJumlahDipakai.setText("");
-                break;
-            case R.id.btnHargaEmas :
-                editHargaEmas.setText("");
-                break;
-            case R.id.btnHitung :
-                if (jumlahEmas >= NISAB_EMAS && lama >= HAUL_EMAS){
-                    double hitung = PERSEN_ZAKAT * (jumlahEmas - jumlahDipakai);
-                    double rupiah = hitung * hargaEmas;
-                    textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(rupiah));
-                }
-                else
-                    textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
-                break;
-            case R.id.btnUlangi :
-                editLamaKepemilikan.setText("");
-                editJumlahTotal.setText("");
-                editJumlahDipakai.setText("");
-                editHargaEmas.setText("");
-                break;
+        if (jumlahEmas >= NISAB_EMAS && lama >= HAUL_EMAS){
+            double hitung = PERSEN_ZAKAT * (jumlahEmas - jumlahDipakai);
+            double rupiah = hitung * hargaEmas;
+            textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(rupiah));
         }
+        else
+            textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
+    }
+
+    public void setNull(){
+        editLamaKepemilikan.setText("");
+        editJumlahTotal.setText("");
+        editJumlahDipakai.setText("");
+        editHargaEmas.setText("");
     }
 
     // tombol click back ke home atau activity sebelumnya

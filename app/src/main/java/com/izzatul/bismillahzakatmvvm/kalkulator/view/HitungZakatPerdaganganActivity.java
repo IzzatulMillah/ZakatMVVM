@@ -1,6 +1,5 @@
 package com.izzatul.bismillahzakatmvvm.kalkulator.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -11,12 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.R;
+import com.izzatul.bismillahzakatmvvm.source.AppActivity;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class HitungZakatPerdaganganActivity extends AppCompatActivity implements View.OnClickListener{
+public class HitungZakatPerdaganganActivity extends AppActivity{
 
+    @NotEmpty(message = "Mohon diisi dahulu")
     EditText editModal, editKeuntungan, editPiutang, editHutang, editKerugian, editHaul, editEmas;
     TextView bHitung, bUlang, textHasil;
     ImageButton btResetModal, btResetKeuntungan, btResetPiutang, btResetHutang, btResetKerugian, btResetHaul, btResetEmas;
@@ -26,11 +28,15 @@ public class HitungZakatPerdaganganActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hitung_zakat_perdagangan);
 
+        setToolbar();
+        getView();
+    }
+    public void setToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
-
+    }
+    public void getView(){
         editHaul = findViewById(R.id.etHaul);
         editEmas = findViewById(R.id.etHargaEmas);
         editModal = findViewById(R.id.etModal);
@@ -54,6 +60,47 @@ public class HitungZakatPerdaganganActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View view) {
+        super.onClick(view);
+        if (validated) {
+            switch (view.getId()){
+                case R.id.btnResetHaul:
+                    editHaul.setText("");
+                    break;
+                case R.id.btnResetModal :
+                    editModal.setText("");
+                    break;
+                case R.id.btnResetKeuntungan :
+                    editKeuntungan.setText("");
+                    break;
+                case R.id.btnResetPiutang :
+                    editPiutang.setText("");
+                    break;
+                case R.id.btnResetHutang :
+                    editHutang.setText("");
+                    break;
+                case R.id.btnResetKerugian :
+                    editKerugian.setText("");
+                    break;
+                case R.id.btnHitung :
+                    hitungZakat();
+                    break;
+                case R.id.btnUlangi:
+                    setNull();
+                    break;
+            }
+        }
+    }
+
+    public void setNull(){
+        editHaul.setText("");
+        editModal.setText("");
+        editKeuntungan.setText("");
+        editPiutang.setText("");
+        editHutang.setText("");
+        editKerugian.setText("");
+    }
+
+    public void hitungZakat() {
         // membuat format untuk menampilkan harga dalam rupiah
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
@@ -70,45 +117,14 @@ public class HitungZakatPerdaganganActivity extends AppCompatActivity implements
         int hutang = Integer.parseInt(editHutang.getText().toString());
         int kerugian = Integer.parseInt(editKerugian.getText().toString());
 
-        switch (view.getId()){
-            case R.id.btnResetHaul:
-                editHaul.setText("");
-                break;
-            case R.id.btnResetModal :
-                editModal.setText("");
-                break;
-            case R.id.btnResetKeuntungan :
-                editKeuntungan.setText("");
-                break;
-            case R.id.btnResetPiutang :
-                editPiutang.setText("");
-                break;
-            case R.id.btnResetHutang :
-                editHutang.setText("");
-                break;
-            case R.id.btnResetKerugian :
-                editKerugian.setText("");
-                break;
-            case R.id.btnHitung :
-                // COMPLETE beri kondisi haul dan nisab
-                double total = (float) ((modal + keuntungan + piutang) - (hutang - kerugian));
-                double nisab = total / hargaEmas;
-                if (kepemilikan >= HAUL_PERAK & nisab >= NISAB_DAGANG) {
-                    double zakat = total * PERSEN_ZAKAT;
-                    textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(zakat));
-                }
-                else
-                    textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
-                break;
-            case R.id.btnUlangi:
-                editHaul.setText("");
-                editModal.setText("");
-                editKeuntungan.setText("");
-                editPiutang.setText("");
-                editHutang.setText("");
-                editKerugian.setText("");
-                break;
+        double total = (float) ((modal + keuntungan + piutang) - (hutang - kerugian));
+        double nisab = total / hargaEmas;
+        if (kepemilikan >= HAUL_PERAK & nisab >= NISAB_DAGANG) {
+            double zakat = total * PERSEN_ZAKAT;
+            textHasil.setText("Harta yang dizakatkan sejumlah " + formatRupiah.format(zakat));
         }
+        else
+            textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
     }
 
     // tombol click back ke home atau activity sebelumnya
