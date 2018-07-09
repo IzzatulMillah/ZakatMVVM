@@ -1,6 +1,7 @@
 package com.izzatul.bismillahzakatmvvm.latihan;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -27,7 +28,6 @@ import org.json.JSONObject;
 import java.util.Random;
 
 public class DetailLatihanActivity extends AppCompatActivity implements View.OnClickListener, DetailLatihanView{
-    private int idLatihan;
     private int i = 1;
     private int skor;
 
@@ -35,7 +35,7 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
 
     private static final String TAG = DetailLatihanActivity.class.getName();
 
-    private TextView noUrutSoal, textSoal, btnNext, btnPrev, textSkor;
+    private TextView noUrutSoal, textSoal, btnNext, textSkor, btnCekJwbn;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
 
     ProgressDialog progressDialog;
@@ -46,14 +46,11 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_detail_latihan);
 
         setUpToolbar();
-
         getElements();
-
         initViewModel();
-
         onAttachView();
 
-        btnPrev.setOnClickListener(this);
+        btnCekJwbn.setOnClickListener(this);
         btnNext.setOnClickListener(this);
     }
 
@@ -75,9 +72,10 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
         jawaban2 = findViewById(R.id.jawaban2);
         jawaban3 = findViewById(R.id.jawaban3);
         jawaban4 = findViewById(R.id.jawaban4);
-        btnPrev = findViewById(R.id.btn_prev);
         btnNext = findViewById(R.id.btn_next);
+        btnCekJwbn = findViewById(R.id.btn_cek_jawaban);
         textSkor = findViewById(R.id.tv_skor);
+        btnNext.setVisibility(View.GONE);
     }
 
     // tombol click back ke home atau activity sebelumnya
@@ -97,17 +95,25 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btn_prev :
-                showToast("TOMBOL PREVIOUS");
+            case R.id.btn_cek_jawaban :
+                cekJawaban();
+                btnNext.setVisibility(View.VISIBLE);
+                btnCekJwbn.setVisibility(View.GONE);
+                //TODO buat fungsi untuk menampilkan pembahasan
                 break;
             case R.id.btn_next :
-                cekJawaban();
                 viewModel.getKuis();
                 i++;
                 showLatihan();
-                if (i >= 10){
-                    Toast.makeText(this, "SELESAI", Toast.LENGTH_LONG).show();
+                if (i > 10){
+                    Intent intent = new Intent(DetailLatihanActivity.this, ResultActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("skorAkhir", skor);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
+                btnCekJwbn.setVisibility(View.VISIBLE);
+                btnNext.setVisibility(View.GONE);
                 break;
         }
     }
@@ -157,44 +163,44 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
             if (jawaban1.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                showToast("Jawaban Benar");
+//                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
-                showToast("Jawaban Salah");
+//                showToast("Jawaban Salah");
             }
         }
         else if (jawaban2.isChecked()){
             if (jawaban2.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                showToast("Jawaban Benar");
+//                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
-                showToast("Jawaban Salah");
+//                showToast("Jawaban Salah");
             }
         }
         else if (jawaban3.isChecked()){
             if (jawaban3.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                showToast("Jawaban Benar");
+//                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
-                showToast("Jawaban Salah");
+//                showToast("Jawaban Salah");
             }
         }
         else if (jawaban4.isChecked()){
             if (jawaban4.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-                showToast("Jawaban Benar");
+//                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
-                showToast("Jawaban Salah");
+//                showToast("Jawaban Salah");
             }
         }
     }

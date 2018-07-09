@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.izzatul.bismillahzakatmvvm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,18 +14,20 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".KategoriActivity" />
         <activity android:name=".latihan.DetailLatihanActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatFitrahActivity"></activity>
-        <activity android:name=".kalkulator.view.HitungZakatEmasActivity"></activity>
+        <activity android:name=".kalkulator.view.HitungZakatFitrahActivity" />
+        <activity android:name=".kalkulator.view.HitungZakatEmasActivity" />
         <activity android:name=".kalkulator.view.HitungZakatPerakActivity" />
         <activity android:name=".kalkulator.view.HitungZakatPerdaganganActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatPertanianActivity"></activity>
+        <activity android:name=".kalkulator.view.HitungZakatPertanianActivity" />
         <activity android:name=".materi.DeskripsiMateriActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatHewanTernakActivity"></activity>
+        <activity android:name=".kalkulator.view.HitungZakatHewanTernakActivity" />
+        <activity android:name=".latihan.ResultActivity"></activity>
     </application>
 
 </manifest>

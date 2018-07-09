@@ -26,4 +26,8 @@
     <string name="waktu_pelaksanaan_zakat">Waktu Pelaksanaan Zakat</string>
     <string name="besar_zakat">Besar Zakat</string>
     <string name="contoh_perhitungan_zakat">Contoh Perhitungan Zakat</string>
+    <string name="skor_akhir">SKOR AKHIR</string>
+    <string name="_setNol">0</string>
+    <string name="cek">CEK JAWABAN</string>
+    <string name="next">SELANJUTNYA</string>
 </resources>
