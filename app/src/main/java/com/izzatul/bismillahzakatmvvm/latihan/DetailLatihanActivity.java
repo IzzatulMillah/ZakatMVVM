@@ -30,12 +30,12 @@ import java.util.Random;
 public class DetailLatihanActivity extends AppCompatActivity implements View.OnClickListener, DetailLatihanView{
     private int i = 1;
     private int skor;
+    private String jawabanBenar, pembahasanSoal;
 
     DetailLatihanViewModel viewModel;
-
     private static final String TAG = DetailLatihanActivity.class.getName();
 
-    private TextView noUrutSoal, textSoal, btnNext, textSkor, btnCekJwbn;
+    private TextView noUrutSoal, textSoal, btnNext, textSkor, btnCekJwbn, textPembahasan;
     private RadioButton jawaban1, jawaban2, jawaban3, jawaban4;
 
     ProgressDialog progressDialog;
@@ -74,6 +74,7 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
         jawaban4 = findViewById(R.id.jawaban4);
         btnNext = findViewById(R.id.btn_next);
         btnCekJwbn = findViewById(R.id.btn_cek_jawaban);
+        textPembahasan = findViewById(R.id.tv_pembahasan);
         textSkor = findViewById(R.id.tv_skor);
         btnNext.setVisibility(View.GONE);
     }
@@ -97,23 +98,11 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()){
             case R.id.btn_cek_jawaban :
                 cekJawaban();
-                btnNext.setVisibility(View.VISIBLE);
-                btnCekJwbn.setVisibility(View.GONE);
-                //TODO buat fungsi untuk menampilkan pembahasan
+                fungsiCek();
                 break;
             case R.id.btn_next :
                 viewModel.getKuis();
-                i++;
-                showLatihan();
-                if (i > 10){
-                    Intent intent = new Intent(DetailLatihanActivity.this, ResultActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("skorAkhir", skor);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                }
-                btnCekJwbn.setVisibility(View.VISIBLE);
-                btnNext.setVisibility(View.GONE);
+                fungsiNext();
                 break;
         }
     }
@@ -158,15 +147,17 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
     }
 
     public void cekJawaban(){
-        String jawabanBenar = viewModel.getJawabanBenar();
+        jawabanBenar = viewModel.getJawabanBenar();
         if (jawaban1.isChecked()){
             if (jawaban1.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
+                jawaban1.setTextColor(getResources().getColor(R.color.trueColor));
 //                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
+                jawaban1.setTextColor(getResources().getColor(R.color.wrongColor));
 //                showToast("Jawaban Salah");
             }
         }
@@ -174,10 +165,12 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
             if (jawaban2.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
-//                showToast("Jawaban Benar");
+                jawaban2.setTextColor(getResources().getColor(R.color.trueColor));
+//                showToast("Jawaban Benar");c
             }
             else {
                 textSkor.setText(""+skor);
+                jawaban2.setTextColor(getResources().getColor(R.color.wrongColor));
 //                showToast("Jawaban Salah");
             }
         }
@@ -185,10 +178,12 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
             if (jawaban3.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
+                jawaban3.setTextColor(getResources().getColor(R.color.trueColor));
 //                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
+                jawaban3.setTextColor(getResources().getColor(R.color.wrongColor));
 //                showToast("Jawaban Salah");
             }
         }
@@ -196,12 +191,42 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
             if (jawaban4.getText().toString().equals(jawabanBenar)){
                 skor = skor + 10;
                 textSkor.setText(""+skor);
+                jawaban4.setTextColor(getResources().getColor(R.color.trueColor));
 //                showToast("Jawaban Benar");
             }
             else {
                 textSkor.setText(""+skor);
+                jawaban4.setTextColor(getResources().getColor(R.color.wrongColor));
 //                showToast("Jawaban Salah");
             }
         }
+    }
+
+    public void fungsiCek(){
+        btnNext.setVisibility(View.VISIBLE);
+        btnCekJwbn.setVisibility(View.GONE);
+        pembahasanSoal = viewModel.getPembahasan();
+        textPembahasan.setText(pembahasanSoal);
+    }
+
+    public void fungsiNext(){
+        i++;
+        showLatihan();
+        if (i > 10){
+            Intent intent = new Intent(DetailLatihanActivity.this, ResultActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("skorAkhir", skor);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
+        btnCekJwbn.setVisibility(View.VISIBLE);
+        btnNext.setVisibility(View.GONE);
+
+        textPembahasan.setText("");
+        jawaban1.setTextColor(getResources().getColor(R.color.colorBlack));
+        jawaban2.setTextColor(getResources().getColor(R.color.colorBlack));
+        jawaban3.setTextColor(getResources().getColor(R.color.colorBlack));
+        jawaban4.setTextColor(getResources().getColor(R.color.colorBlack));
     }
 }

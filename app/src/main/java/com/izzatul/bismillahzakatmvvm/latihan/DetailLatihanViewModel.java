@@ -32,7 +32,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
 
     private int idLatihan;
 
-    private String jawabanBenar;
+    private String jawabanBenar, pembahasanSoal;
     private String url = "http://millah.cyber1011.com/web/services/get-latihan/";
 
     Context mContext;
@@ -83,6 +83,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
                     String jawab3 = data.getString("jawaban_3");
                     String jawab4 = data.getString("jawaban_4");
                     String jawaban_benar = data.getString("jawaban_benar");
+                    String pembahasan = data.getString("pembahasan");
 
                     pertanyaan.setSoal(soal);
                     pertanyaan.setJawaban1(jawab1);
@@ -92,6 +93,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
                     detailLatihanView.showLatihan(pertanyaan);
 
                     jawabanBenar = jawaban_benar;
+                    pembahasanSoal = pembahasan;
 //                    Toast.makeText(LatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -122,7 +124,6 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
             Log.d("ayam",String.valueOf(idLatihan));
         } while (idSoal.contains(idLatihan));
         idSoal.add(idLatihan);
-
         getData(idLatihan);
     }
 
@@ -131,6 +132,13 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
 
         jwbnBenar = jawabanBenar;
         return jwbnBenar;
+    }
+
+    public String getPembahasan(){
+        String bahasan;
+
+        bahasan = pembahasanSoal;
+        return bahasan;
     }
 
 }

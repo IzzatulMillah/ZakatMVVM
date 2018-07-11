@@ -79,7 +79,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -129,45 +130,53 @@
                         android:text="27 kg beras" />
                 </RadioGroup>
 
+                <TextView
+                    android:id="@+id/tv_pembahasan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Jawaban: a. Mualaf. Orang yang baru masuk Islam dan imannya masih lemah dinamakan mualaf. Mualaf berbeda dengan mukalaf. Mukalaf adalah orang yang sudah dikenakan kewajiban menjalankan syari’at Islam atau orang yang sudah dibebani hukum Islam."
+                    android:textColor="@android:color/black" />
+
+                <!-- Button NEXT -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                    <TextView
+                        android:id="@+id/btn_cek_jawaban"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="@string/cek"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btn_next"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="@string/next"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
             </LinearLayout>
 
         </ScrollView>
-
-        <!-- Button NEXT dan PREV -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/activity_vertical_margin">
-
-            <TextView
-                android:id="@+id/btn_cek_jawaban"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/cek"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@android:color/background_light"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/btn_next"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/next"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@android:color/background_light"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:visibility="gone"/>
-        </LinearLayout>
 
     </LinearLayout>
 

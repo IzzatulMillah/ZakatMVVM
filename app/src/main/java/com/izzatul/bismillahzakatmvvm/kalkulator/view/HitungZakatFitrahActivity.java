@@ -15,10 +15,15 @@ import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorView;
 import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorViewModel;
 import com.izzatul.bismillahzakatmvvm.model.ZakatFitrah;
 import com.izzatul.bismillahzakatmvvm.source.AppActivity;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
-public class HitungZakatFitrahActivity extends AppActivity implements KalkulatorView{
+import java.text.NumberFormat;
+import java.util.Locale;
+
+public class HitungZakatFitrahActivity extends AppActivity{
 
     KalkulatorViewModel kalkulatorViewModel;
+    @NotEmpty(message = "Mohon diisi dahulu")
     EditText editHargaBeras, editJumlahOrang;
     ImageButton btResetHrgBeras, btResetJumlahOrang;
     TextView bHitung, bUlang, textHasil;
@@ -95,27 +100,23 @@ public class HitungZakatFitrahActivity extends AppActivity implements Kalkulator
         textHasil.setText("");
     }
     public void hitung(){
-        Log.d("Fungsi hitung ", "Activity");
-        kalkulatorViewModel = new KalkulatorViewModel();
-        kalkulatorViewModel.hitungZakatFitrah();
-    }
-    @Override
-    public void onAttachView() {
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
-    }
+        ZakatFitrah zakatFitrah = new ZakatFitrah();
+        float kadar = zakatFitrah.getKADAR_ZAKAT_FITRAH();
+        Float hargaBeras = Float.parseFloat(editHargaBeras.getText().toString());
+        int jumlahOrang = Integer.parseInt(editJumlahOrang.getText().toString());
+        float hasilLiter = kadar * jumlahOrang;
+        float hasilRupiah = hasilLiter * hargaBeras;
 
-    @Override
-    public void onDetachView() {
-
-    }
-
-    @Override
-    public void showToast(String message) {
-
-    }
-
-    @Override
-    public void showHasilFitrah(ZakatFitrah zakatFitrah) {
-        textHasil.setText(kalkulatorViewModel.getZakatFitrah().getHasilZakat());
+        zakatFitrah.setHasilZakat("Zakat yang dibayarkan dapat berupa "
+                + hasilLiter
+                + " liter makanan pokok setempat, atau dapat berupa uang sejumlah "
+                + formatRupiah.format(hasilRupiah));
+//        Log.d("Fungsi hitung ", "Activity");
+//        kalkulatorViewModel = new KalkulatorViewModel();
+//        kalkulatorViewModel.hitungZakatFitrah();
+        textHasil.setText(zakatFitrah.getHasilZakat());
     }
 }
