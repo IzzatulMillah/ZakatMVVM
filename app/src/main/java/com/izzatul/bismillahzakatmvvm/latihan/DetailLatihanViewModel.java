@@ -94,6 +94,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
 
                     jawabanBenar = jawaban_benar;
                     pembahasanSoal = pembahasan;
+                    Log.d("bahas", pembahasan);
 //                    Toast.makeText(LatihanActivity.this, jawaban_benar, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -85,6 +85,7 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
                     hitungZakat();
                     break;
                 case R.id.btnUlangi:
+                    validated = false;
                     setNull();
                     break;
             }

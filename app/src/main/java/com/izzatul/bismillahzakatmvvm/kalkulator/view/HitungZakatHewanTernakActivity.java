@@ -68,6 +68,7 @@ public class HitungZakatHewanTernakActivity extends AppActivity{
                     }
                     break;
                 case R.id.btn_ulang :
+                    validated = false;
                     setNull();
                     break;
             }

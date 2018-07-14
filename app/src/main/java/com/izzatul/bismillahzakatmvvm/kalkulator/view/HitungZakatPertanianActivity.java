@@ -22,6 +22,7 @@ public class HitungZakatPertanianActivity extends AppActivity{
 
     @NotEmpty(message = "Mohon diisi dahulu")
     private EditText editJenis, editBerat;
+
     private TextView textHasil, btHitung, btUlang;
     private ImageButton resetJenis, resetBerat;
     private RadioButton rbManual, rbHujan;
@@ -87,6 +88,7 @@ public class HitungZakatPertanianActivity extends AppActivity{
                     hitungZakat();
                     break;
                 case R.id.btnUlangi :
+                    validated = false;
                     setNull();
                     break;
             }

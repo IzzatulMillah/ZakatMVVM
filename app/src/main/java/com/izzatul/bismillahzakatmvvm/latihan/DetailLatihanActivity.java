@@ -97,8 +97,10 @@ public class DetailLatihanActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_cek_jawaban :
+                Log.d("sebelum","jalan");
                 cekJawaban();
                 fungsiCek();
+                Log.d("sesudah","jalan");
                 break;
             case R.id.btn_next :
                 viewModel.getKuis();

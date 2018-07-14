@@ -74,6 +74,7 @@ public class HitungZakatFitrahActivity extends AppActivity{
                     hitung();
                     break;
                 case R.id.btnUlangi :
+                    validated = false;
                     setNull();
                     break;
             }

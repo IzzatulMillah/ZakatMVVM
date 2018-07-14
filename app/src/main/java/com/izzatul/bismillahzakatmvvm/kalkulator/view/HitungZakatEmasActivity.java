@@ -84,6 +84,7 @@ public class HitungZakatEmasActivity extends AppActivity{
                     hitungZakat();
                     break;
                 case R.id.btnUlangi :
+                    validated = false;
                     setNull();
                     break;
             }
