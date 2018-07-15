@@ -30,4 +30,5 @@
     <string name="_setNol">0</string>
     <string name="cek">CEK JAWABAN</string>
     <string name="next">SELANJUTNYA</string>
+    <string name="tidak_wajib_zakat">Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab atau haul</string>
 </resources>
