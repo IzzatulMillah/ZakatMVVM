@@ -118,6 +118,7 @@ public class HitungZakatEmasActivity extends AppActivity{
         editJumlahTotal.setText("");
         editJumlahDipakai.setText("");
         editHargaEmas.setText("");
+        textHasil.setText("");
     }
 
     // tombol click back ke home atau activity sebelumnya

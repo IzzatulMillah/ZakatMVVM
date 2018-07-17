@@ -95,6 +95,7 @@ public class HitungZakatPerakActivity extends AppActivity{
         editJumlahTotal.setText("");
         editJumlahDipakai.setText("");
         editHargaPerak.setText("");
+        textHasil.setText("");
     }
 
     public void hitungZakat(){
@@ -118,7 +119,7 @@ public class HitungZakatPerakActivity extends AppActivity{
                     + formatRupiah.format(rupiah));
         }
         else
-            textHasil.setText("Anda tidak wajib membayar zakat karena harta yang dimiliki belum mencapai nisab dan haul");
+            textHasil.setText(R.string.tidak_wajib_zakat);
     }
 
     // tombol click back ke home atau activity sebelumnya
