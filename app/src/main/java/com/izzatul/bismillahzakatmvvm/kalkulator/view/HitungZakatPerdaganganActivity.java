@@ -85,6 +85,7 @@ public class HitungZakatPerdaganganActivity extends AppActivity{
         editHaul.setText("");
         editModal.setText("");
         editEmas.setText("");
+        textHasil.setText("");
     }
 
     public void hitungZakat() {

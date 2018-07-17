@@ -41,6 +41,13 @@
                 android:orientation="vertical">
 
                 <!-- Jenis Tanaman -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jenis Tanaman"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="18sp"
+                    android:padding="5dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -48,28 +55,31 @@
                     android:orientation="horizontal"
                     android:weightSum="10">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="9">
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
 
-                        <android.support.design.widget.TextInputEditText
-                            android:id="@+id/etJenis"
-                            android:layout_width="match_parent"
+                        <RadioButton
+                            android:id="@+id/rbGandum"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Jenis Tanaman"
-                            android:inputType="text" />
-                    </android.support.design.widget.TextInputLayout>
+                            android:text="@string/gandum" />
 
-                    <ImageButton
-                        android:id="@+id/btnResetJenis"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:layout_weight="1"
-                        android:src="@android:drawable/btn_dialog" />
+                        <RadioButton
+                            android:id="@+id/rbBeras"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/beras" />
+
+                        <RadioButton
+                            android:id="@+id/rbJagung"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/jagung" />
+                    </RadioGroup>
                 </LinearLayout>
 
                 <!-- Berat Tanaman -->
@@ -108,7 +118,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Proses Pengairan"
+                    android:text="@string/proses_pengairan"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:textSize="18sp" />
 
@@ -128,7 +138,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="true"
                             android:text="Disiram manual" />
 
                         <RadioButton
@@ -136,7 +145,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="false"
                             android:text="Disiram hujan" />
 
                     </RadioGroup>
