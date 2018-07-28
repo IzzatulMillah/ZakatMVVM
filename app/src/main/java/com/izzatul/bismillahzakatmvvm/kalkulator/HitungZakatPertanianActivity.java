@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm.kalkulator.view;
+package com.izzatul.bismillahzakatmvvm.kalkulator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

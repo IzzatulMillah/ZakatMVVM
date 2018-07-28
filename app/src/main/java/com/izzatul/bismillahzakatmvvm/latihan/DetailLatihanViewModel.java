@@ -57,7 +57,7 @@ public class DetailLatihanViewModel implements ViewModel<DetailLatihanView> {
     private int getRandomNumber(){
         int num;
         int min = 1;
-        int max = 10;
+        int max = 20;
 
         num = new Random().nextInt((max - min) + 1) + min;
         return num;

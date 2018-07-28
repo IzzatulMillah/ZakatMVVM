@@ -1,4 +1,4 @@
-package com.izzatul.bismillahzakatmvvm;
+package com.izzatul.bismillahzakatmvvm.model;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.izzatul.bismillahzakatmvvm.model.Zakat;
+import com.izzatul.bismillahzakatmvvm.R;
 
 import java.util.List;
 

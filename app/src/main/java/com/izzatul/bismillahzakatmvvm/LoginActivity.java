@@ -1,11 +1,13 @@
-package com.izzatul.bismillahzakatmvvm.latihan;
+package com.izzatul.bismillahzakatmvvm;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,88 +18,81 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.izzatul.bismillahzakatmvvm.R;
 import com.izzatul.bismillahzakatmvvm.source.SessionManagement;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-
-public class ResultActivity extends AppCompatActivity {
-    private TextView skorAkhir;
-    private int bundleSkor;
-    private String namaUser, idUser;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = LoginActivity.class.getName();
+    private EditText etUsername, etPassword;
+    private Button btnLogin;
+    private String username, password;
+    private TextView textRegis;
     SessionManagement session;
 
-    private String url = "http://millah.cyber1011.com/web/services/simpan-skor/";
-    private static final String TAG = ResultActivity.class.getName();
+    private String url = "http://millah.cyber1011.com/web/services/login/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        setContentView(R.layout.activity_login);
 
         session = new SessionManagement(getApplicationContext());
-
-        setupToolbar();
         getView();
-        simpanSkor(idUser,bundleSkor);
     }
 
     public void getView(){
-        skorAkhir = findViewById(R.id.tV_skor_akhir);
-        bundleSkor = getIntent().getExtras().getInt("skorAkhir");
+        etUsername = findViewById(R.id.editTextUsername);
+        etPassword = findViewById(R.id.editTextPassword);
+        btnLogin = findViewById(R.id.buttonLogin);
+        textRegis = findViewById(R.id.textViewCreateAccount);
 
-        HashMap<String, String> user = session.getUserDetails();
-        namaUser = user.get(SessionManagement.KEY_NAME);
-        idUser = user.get(SessionManagement.KEY_EMAIL);
-        skorAkhir.setText(namaUser + "\n" + bundleSkor);//ambil username + id; nb : Key_email = id
+        textRegis.setText("Registrasi");
+        btnLogin.setOnClickListener(this);
     }
 
-    private void setupToolbar(){
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.skor_akhir);
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
-    }
-
-    // tombol click back ke home atau activity sebelumnya
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int idItem = item.getItemId();
-        switch (idItem) {
-            case android.R.id.home :
-                finish();
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.buttonLogin :
+                fungsiLogin();
                 break;
-            default:
-                Toast.makeText(this, "what are you pushing?", Toast.LENGTH_SHORT).show();
         }
-        return true;
     }
 
-    public void simpanSkor(String userId, int skorUser){
+    private void fungsiLogin() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
+        username = etUsername.getText().toString();
+        password = etPassword.getText().toString();
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url + userId + "/" + skorUser, null, new Response.Listener<JSONObject>() {
+                url + username + "/" + password, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 Log.d(TAG, response.toString());
-
                 try {
                     // Parsing json object response
                     // response will be a json object
                     int status = response.getInt("status");
+                    String username= response.getString("username");
+                    String id= response.getString("id");
 
                     if (status == 1){
-                        Toast.makeText(ResultActivity.this, "Data skor telah disimpan", Toast.LENGTH_SHORT).show();
-                    } else if (status == 0){
-                        Toast.makeText(ResultActivity.this, "Error. Data belum tersimpan", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, username + " =>" + id, Toast.LENGTH_SHORT).show();
+                        session.createLoginSession(username, id);
+                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
+                    else if (status == 0){
+                        Toast.makeText(LoginActivity.this, R.string.login_gagal, Toast.LENGTH_SHORT).show();
+                    }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();

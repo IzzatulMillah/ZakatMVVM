@@ -1,8 +1,7 @@
-package com.izzatul.bismillahzakatmvvm.kalkulator.view;
+package com.izzatul.bismillahzakatmvvm.kalkulator;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.izzatul.bismillahzakatmvvm.R;
-import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorView;
-import com.izzatul.bismillahzakatmvvm.kalkulator.KalkulatorViewModel;
 import com.izzatul.bismillahzakatmvvm.model.ZakatFitrah;
 import com.izzatul.bismillahzakatmvvm.source.AppActivity;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
@@ -22,7 +19,6 @@ import java.util.Locale;
 
 public class HitungZakatFitrahActivity extends AppActivity{
 
-    KalkulatorViewModel kalkulatorViewModel;
     @NotEmpty(message = "Mohon diisi dahulu")
     EditText editHargaBeras, editJumlahOrang;
     ImageButton btResetHrgBeras, btResetJumlahOrang;
@@ -115,9 +111,6 @@ public class HitungZakatFitrahActivity extends AppActivity{
                 + hasilLiter
                 + " liter makanan pokok setempat, atau dapat berupa uang sejumlah "
                 + formatRupiah.format(hasilRupiah));
-//        Log.d("Fungsi hitung ", "Activity");
-//        kalkulatorViewModel = new KalkulatorViewModel();
-//        kalkulatorViewModel.hitungZakatFitrah();
         textHasil.setText(zakatFitrah.getHasilZakat());
     }
 }

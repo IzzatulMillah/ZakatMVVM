@@ -35,4 +35,12 @@
     <string name="beras">Beras</string>
     <string name="jagung">Jagung</string>
     <string name="proses_pengairan">Proses Pengairan</string>
+    <string name="zakat_rikaz">Zakat Rikaz / Barang Temuan</string>
+    <string name="harga_jual">Harga jual barang</string>
+    <string name="login">Log In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login_gagal">Login Gagal. Username dan Password salah.</string>
+    <string name="profil_user">Profil User</string>
+    <string name="log_out">Log Out</string>
 </resources>

@@ -20,14 +20,17 @@
         </activity>
         <activity android:name=".KategoriActivity" />
         <activity android:name=".latihan.DetailLatihanActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatFitrahActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatEmasActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatPerakActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatPerdaganganActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatPertanianActivity" />
+        <activity android:name=".kalkulator.HitungZakatFitrahActivity" />
+        <activity android:name=".kalkulator.HitungZakatEmasActivity" />
+        <activity android:name=".kalkulator.HitungZakatPerakActivity" />
+        <activity android:name=".kalkulator.HitungZakatPerdaganganActivity" />
+        <activity android:name=".kalkulator.HitungZakatPertanianActivity" />
         <activity android:name=".materi.DeskripsiMateriActivity" />
-        <activity android:name=".kalkulator.view.HitungZakatHewanTernakActivity" />
-        <activity android:name=".latihan.ResultActivity"></activity>
+        <activity android:name=".kalkulator.HitungZakatHewanTernakActivity" />
+        <activity android:name=".latihan.ResultActivity" />
+        <activity android:name=".kalkulator.HitungZakatRikazActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".latihan.ProfilUserActivity"></activity>
     </application>
 
 </manifest>

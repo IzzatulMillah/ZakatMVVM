@@ -9,14 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatEmasActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatFitrahActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatHewanTernakActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerakActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPerdaganganActivity;
-import com.izzatul.bismillahzakatmvvm.kalkulator.view.HitungZakatPertanianActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatEmasActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatFitrahActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatHewanTernakActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPerakActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPerdaganganActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatPertanianActivity;
+import com.izzatul.bismillahzakatmvvm.kalkulator.HitungZakatRikazActivity;
 import com.izzatul.bismillahzakatmvvm.materi.DeskripsiMateriActivity;
 import com.izzatul.bismillahzakatmvvm.model.Zakat;
+import com.izzatul.bismillahzakatmvvm.model.ZakatAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,8 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
     private RecyclerView rv;
     private List<Zakat> zakatList;
     private int bundle;
+
+    Bundle fitrah, emas, perak, dagang, tani, ternak, rikaz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,7 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
         zakatList.add(new Zakat("Zakat Perdagangan"));
         zakatList.add(new Zakat("Zakat Pertanian"));
         zakatList.add(new Zakat("Zakat Hewan Ternak"));
+        zakatList.add(new Zakat("Zakat Rikaz"));
     }
 
     private void inisialisasiAdapter(){
@@ -99,11 +104,14 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     intent = new Intent(this, HitungZakatHewanTernakActivity.class);
                     startActivity(intent);
                     break;
+                case 6 :
+                    intent = new Intent(this, HitungZakatRikazActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
         /* Jika value yang dipassing adalah 1, maka akan menuju ke activity materi */
         else {
-            Bundle fitrah, emas, perak, dagang, tani, ternak;
             switch (position) {
                 case 0 :
                     intent = new Intent(this, DeskripsiMateriActivity.class);
@@ -145,6 +153,13 @@ public class KategoriActivity extends AppCompatActivity implements ZakatAdapter.
                     ternak = new Bundle();
                     ternak.putInt("kategori", 6);
                     intent.putExtras(ternak);
+                    startActivity(intent);
+                    break;
+                case 6 :
+                    intent = new Intent(this, DeskripsiMateriActivity.class);
+                    rikaz = new Bundle();
+                    rikaz.putInt("kategori", 7);
+                    intent.putExtras(rikaz);
                     startActivity(intent);
                     break;
             }

@@ -7,27 +7,37 @@ import android.view.View;
 import android.widget.Button;
 
 import com.izzatul.bismillahzakatmvvm.latihan.DetailLatihanActivity;
+import com.izzatul.bismillahzakatmvvm.latihan.ProfilUserActivity;
+import com.izzatul.bismillahzakatmvvm.source.SessionManagement;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button bMateri, bLatihan, bKalkulator, bTentang;
+    Button bMateri, bLatihan, bKalkulator, bLogOut, bProfilUser;
+    SessionManagement session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//      COMPLETED cari method OnClickListener yang lebih efisien
+        session = new SessionManagement(getApplicationContext());
+
+        if (!session.isLoggedIn()){
+            session.checkLogin();
+            finish();
+        }
 
         bMateri = findViewById(R.id.btnMateri);
         bLatihan = findViewById(R.id.btnSoalLatihan);
         bKalkulator = findViewById(R.id.btnKalkulator);
-        bTentang = findViewById(R.id.btnTentangAplikasi);
+        bProfilUser = findViewById(R.id.btnProfilUser);
+        bLogOut = findViewById(R.id.btnLogOut);
 
         bMateri.setOnClickListener(this);
         bLatihan.setOnClickListener(this);
         bKalkulator.setOnClickListener(this);
-        bTentang.setOnClickListener(this);
+        bProfilUser.setOnClickListener(this);
+        bLogOut.setOnClickListener(this);
     }
 
     @Override
@@ -51,7 +61,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 kalkulator.putExtras(bundle2);
                 startActivity(kalkulator);
                 break;
-            case R.id.btnTentangAplikasi:
+            case R.id.btnProfilUser :
+                Intent profilUser = new Intent(MainActivity.this, ProfilUserActivity.class);
+                startActivity(profilUser);
+                break;
+            case R.id.btnLogOut:
+                session.logoutUser();
+                finish();
                 break;
         }
     }
